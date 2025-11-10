@@ -1,0 +1,127 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const evenements = [
+  {
+    titre: 'Atelier de documentation patrimoniale – avec La Boîte Rouge VIF',
+    date: '26 janvier 2026',
+    heure: '18 h – 22 h',
+    description:
+      'Atelier pratique présentant le processus de documentation du musée : inventaire, photographie et description des artefacts à l’aide d’outils professionnels et de protocoles culturels. Ouvert aux étudiants, jeunes chercheurs et résidents de Wendake.',
+    image: '/images/webp/council-circle.webp',
+  },
+  {
+    titre: 'Présentation pilote de l’exposition',
+    date: '12 février 2026',
+    heure: '14 h – 16 h 30',
+    description:
+      'Aperçu exclusif de la première phase d’exposition du musée, avec des pièces clés de la collection Max Gros-Louis, des témoignages communautaires et de nouvelles installations numériques développées avec La Boîte Rouge VIF.',
+    image: '/images/webp/community-speaker.webp',
+  },
+  {
+    titre: 'Activités en continu',
+    date: 'En continu',
+    heure: '',
+    description:
+      'Toute l’année, l’équipe du musée organise des activités en collaboration avec des partenaires culturels et éducatifs :<br /><br />Séances de documentation patrimoniale avec bénévoles et étudiants<br />Consultations communautaires avec le Cercle des aînés<br />Entretiens d’histoire orale pour les archives numériques<br />Visites de sensibilisation dans les écoles et institutions partenaires<br /><br />Suivez les mises à jour sur <a href="https://www.maxgroslouis.com" target="_blank" rel="noreferrer">www.maxgroslouis.com</a> et sur nos <a href="https://www.facebook.com/profile.php?id=61581850003312" target="_blank" rel="noreferrer">réseaux sociaux</a> pour participer.',
+    image: '/images/webp/community-collection.webp',
+  },
+];
+---
+
+<Layout title="Événements | Espace Max Gros-Louis">
+  <section class="events-hero glass-panel">
+    <div>
+      <p class="eyebrow">Participer</p>
+      <h1>Programmation enracinée dans le récit, la cérémonie et la joie.</h1>
+      <p>Chaque événement est co-créé avec des aînés, des artistes et des gardiens du savoir pour offrir des moments de réflexion, de dialogue et d’apprentissage.</p>
+    </div>
+    <img src="/images/webp/forest-installation.webp" alt="Installation au musée" loading="lazy" />
+  </section>
+
+  <section class="gathering-grid">
+    {evenements.map((event) => (
+      <article class="gathering glass-panel">
+        <img src={event.image} alt={event.titre} loading="lazy" />
+        <div>
+          <h2>{event.titre}</h2>
+          <p class="datetime">
+            {event.date}
+            {event.heure ? ` · ${event.heure}` : ''}
+          </p>
+          <p set:html={event.description}></p>
+          <a class="btn ghost" href="/fr/contact">Joindre la liste d'attente</a>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="weekly glass-panel">
+    <div class="section-heading">
+      <p class="eyebrow">Restez connectés</p>
+      <h2>
+        Abonnez-vous à notre infolettre ou
+        <a href="https://www.facebook.com/profile.php?id=61581850003312" target="_blank" rel="noreferrer" style="text-decoration: underline;">suivez-nous sur les réseaux sociaux</a>
+        pour connaître les prochains événements, ateliers et étapes d’exposition.
+      </h2>
+    </div>
+    <ul>
+      <li><a href="mailto:info@maxgroslouis.com">info@maxgroslouis.com</a></li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  section {
+    margin-top: clamp(2rem, 6vw, 4rem);
+  }
+
+  .events-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .events-hero img {
+    width: 100%;
+    border-radius: 1.25rem;
+    object-fit: cover;
+    max-height: 420px;
+  }
+
+  .gathering-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .gathering {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .gathering img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  .datetime {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-size: 0.75rem;
+    color: var(--global-accent-alt-color);
+  }
+
+  .weekly ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+</style>

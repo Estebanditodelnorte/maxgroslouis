@@ -1,0 +1,556 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const misesEnAvant = [
+  {
+    titre: 'Galerie des Nations Vivantes',
+    description:
+      'Rencontrez les artefacts historiques jumelés à des œuvres contemporaines qui témoignent du battement de coeur de la forêt.',
+    image: '/images/webp/forest-installation.webp',
+  },
+  {
+    titre: 'Histoires sous les Pins',
+    description:
+      'Performances nocturnes qui marient conte, archives audio et projections sur la canopée pour une immersion sensorielle.',
+    image: '/images/webp/mask-gallery.webp',
+  },
+  {
+    titre: 'Atelier de conservation',
+    description:
+      'Studios participatifs où l’on apprend à restaurer perlage, vêtements et instruments avec guidance d’artisans.',
+    image: '/images/webp/community-collection.webp',
+  },
+];
+
+const programmes = [
+  {
+    titre: 'Aînés en résidence',
+    detail: 'Cercles quotidiens guidés par les aînés mentorés par Max Gros-Louis, centrés sur la gouvernance et le soin du territoire.',
+  },
+  {
+    titre: 'École de la Forêt',
+    detail: 'Ateliers jeunesse : pigments botaniques, fabrication de tambours et cartographie des rivières.',
+  },
+  {
+    titre: 'Boursiers curatoriaux',
+    detail: 'Résidence de six mois pour chercheurs travaillant sur la diplomatie interculturelle et la rapatriation.',
+  },
+];
+
+const evenements = [
+  { date: '22 nov', titre: 'Ouverture Clair de Lune', detail: 'Vernissage aux chandelles avec performances et dégustations.' },
+  {
+    date: '5 déc',
+    titre: 'Laboratoire d’écoute',
+    detail: 'Diffusion d’archives audio de Max Gros-Louis commentées par l’équipe de préservation.',
+  },
+  { date: '14 jan', titre: 'Marche aux Lanternes', detail: 'Promenade guidée sur les anciens sentiers de commerce.' },
+];
+
+const temoignages = [
+  {
+    citation: 'Chaque salle murmure la langue, le tambour et le rire. On dirait que la forêt parle dans ces murs.',
+    nom: 'Noémie Picard',
+    role: 'Anthropologue culturelle',
+  },
+  {
+    citation: 'Le musée Max Gros-Louis marie courage historique et création actuelle. Mes élèves sont repartis transformés.',
+    nom: 'Aaron Littlefeather',
+    role: 'Enseignant, Académie Kitchi',
+  },
+];
+
+const heures = [
+  { label: 'Statut du musée', time: 'Fermé au public' },
+  { label: 'Réouverture', time: 'Date à confirmer' },
+  { label: 'Visites privées', time: 'Sur rendez-vous seulement' },
+];
+---
+
+<Layout title="Espace Max Gros-Louis | Accueil">
+  <section class="hero">
+    <div class="hero__content">
+      <p class="eyebrow">Espace Max Oné Onti Gros-Louis</p>
+      <h1>Honoring Memory, Culture, and Continuity.</h1>
+      <p class="lead">
+        Honorer la mémoire, la culture et la continuité. L’Espace Musée Oné Onti Max Gros-Louis, situé à Wendake, célèbre la vie et l’héritage du Grand Chef Max Gros-Louis (1931–2020) — leader visionnaire et défenseur des droits autochtones.
+        Le musée est dédié à la préservation, la documentation et le partage du patrimoine culturel et historique de la Nation huronne-wendat et d’autres Premières Nations.
+      </p>
+      <div class="hero__actions">
+        <a class="btn primary" href="/fr/visit">Planifier une visite</a>
+        <a class="btn ghost" href="/fr/about">Découvrir l’héritage</a>
+      </div>
+      <ul class="hero__stats">
+        <li>
+          <span class="stat">60+</span>
+          <span>années de plaidoyer mises en lumière</span>
+        </li>
+        <li>
+          <span class="stat">8</span>
+          <span>galeries immersives à parcourir</span>
+        </li>
+        <li>
+          <span class="stat">120</span>
+          <span>acres de forêt protégée</span>
+        </li>
+      </ul>
+    </div>
+    <div class="hero__image">
+      <img src="/images/webp/hero-corridor.webp" alt="Portraits d’archives du Grand Chef Max Gros-Louis" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="mission glass-panel">
+    <div>
+      <p class="eyebrow">Mission</p>
+      <h2>Une maison de récits enracinés dans le territoire.</h2>
+      <p>
+        Max Gros-Louis a défendu la souveraineté, la langue et la protection écologique. Le musée poursuit cette vision grâce à des expositions,
+        résidences artistiques et recherches qui amplifient les voix des Premières Nations.
+      </p>
+    </div>
+    <div class="mission__grid">
+      <article>
+        <h3>Laboratoire des modes de vie</h3>
+        <p>Recherche collaborative sur les technologies ancestrales et innovations contemporaines.</p>
+      </article>
+      <article>
+        <h3>Gardiens de la forêt</h3>
+        <p>Sanctuaire de 120 acres pour les plantes médicinales et espèces migratrices.</p>
+      </article>
+      <article>
+        <h3>Circles communautaires</h3>
+        <p>Rencontres intergénérationnelles axées sur le mentorat, la guérison et la diplomatie.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="highlights">
+    <div class="section-heading">
+      <p class="eyebrow">Expositions vedettes</p>
+      <h2>Des salles sculptées par la lumière de la forêt.</h2>
+    </div>
+    <div class="highlight-grid">
+      {misesEnAvant.map((item) => (
+        <article class="highlight-card">
+          <img src={item.image} alt={item.titre} loading="lazy" />
+          <div>
+            <h3>{item.titre}</h3>
+            <p>{item.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="programs glass-panel">
+    <div class="section-heading">
+      <p class="eyebrow">Programmes & résidences</p>
+      <h2>Cocréés avec les aînés, artistes et chercheurs.</h2>
+    </div>
+    <div class="program-grid">
+      {programmes.map((programme) => (
+        <article class="program-card">
+          <h3>{programme.titre}</h3>
+          <p>{programme.detail}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="events">
+    <div class="section-heading">
+      <p class="eyebrow">Événements à venir</p>
+      <h2>Réunions à la lueur des lanternes.</h2>
+    </div>
+    <div class="event-grid">
+      {evenements.map((event) => (
+        <article class="event-card glass-panel">
+          <span class="event-date">{event.date}</span>
+          <h3>{event.titre}</h3>
+          <p>{event.detail}</p>
+          <a href="/fr/events" class="link">Réserver →</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="visit glass-panel">
+    <div class="visit__info">
+      <p class="eyebrow">Visite</p>
+      <h2>Préparez votre parcours entre musée et forêt.</h2>
+      <p>
+        Ouvert du mardi au dimanche de 10 h à 22 h les fins de semaine. Les visites du soir incluent des sentiers illuminés et contes vivants à chaque heure.
+      </p>
+      <ul>
+        <li>Navette gratuite depuis Wendake centre-ville toutes les 30 minutes.</li>
+        <li>Café Mushu : menu de saison et boissons aux plantes.</li>
+        <li>Espaces accessibles; visites privées sur demande.</li>
+      </ul>
+      <a class="btn primary" href="/fr/visit">Obtenir l’itinéraire</a>
+    </div>
+    <div class="visit__image">
+      <img src="/images/webp/elder-portrait.webp" alt="Aînée assise près des tambours et paniers" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="section-heading">
+      <p class="eyebrow">Témoignages</p>
+      <h2>Ce que les visiteurs ressentent.</h2>
+    </div>
+    <div class="testimonial-grid">
+      {temoignages.map((temoignage) => (
+        <blockquote class="glass-panel">
+          <p>“{temoignage.citation}”</p>
+          <footer>
+            <strong>{temoignage.nom}</strong>
+            <span>{temoignage.role}</span>
+          </footer>
+        </blockquote>
+      ))}
+    </div>
+  </section>
+
+  <section class="contact-hours glass-panel">
+    <div class="contact-block">
+      <p class="eyebrow">Nous écrire</p>
+      <h2>Pour les visites, partenariats ou histoires à partager.</h2>
+      <p>97 Boulevard Bastien, Wendake QC · G0A 4V0</p>
+      <p>
+        <a href="tel:+18197909855">819-790-9855</a><br />
+        <a href="mailto:info@maxgroslouis.com">info@maxgroslouis.com</a>
+      </p>
+      <p>Navette gratuite toutes les 30 minutes depuis le centre.</p>
+    </div>
+    <div class="hours-block">
+      <p class="eyebrow">Statut</p>
+      <ul>
+        {heures.map((h) => (
+          <li>
+            <span>{h.label}</span>
+            <strong>{h.time}</strong>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta glass-panel">
+    <div>
+      <p class="eyebrow">Soutenir</p>
+      <h2>Joignez le cercle qui poursuit l’héritage.</h2>
+      <p>Votre contribution finance des commandes artistiques, la rematriation des terres et l’accès à contribution volontaire.</p>
+    </div>
+    <div class="cta__actions">
+      <a class="btn primary" href="/fr/membership">Devenir membre</a>
+      <a class="btn ghost" href="/fr/contact">Parler à l’équipe</a>
+    </div>
+  </section>
+
+  <footer class="site-map">
+    <div>
+      <h4>Explorer</h4>
+      <a href="/fr">Accueil</a>
+      <a href="/fr/about">À propos</a>
+      <a href="/fr/exhibits">Expositions</a>
+      <a href="/fr/events">Événements</a>
+    </div>
+    <div>
+      <h4>Planifier</h4>
+      <a href="/fr/visit">Visiter</a>
+      <a href="/fr/membership">Adhésion</a>
+      <a href="/fr/contact">Contact</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:info@maxgroslouis.com">info@maxgroslouis.com</a>
+      <a href="tel:+18197909855">819-790-9855</a>
+      <span>97 Boulevard Bastien, Wendake QC</span>
+      <a href="/fr/privacy">Politique de confidentialité</a>
+      <a href="https://www.facebook.com/profile.php?id=61581850003312" target="_blank" rel="noreferrer">Facebook</a>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  section {
+    margin-top: clamp(2rem, 6vw, 4rem);
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    margin: 0;
+  }
+
+  .lead {
+    font-size: 1.15rem;
+    max-width: 55ch;
+    color: color-mix(in srgb, var(--global-base-t-color) 85%, var(--global-base-b-alt-color));
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .hero__stats {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero__stats li {
+    border-left: 1px solid var(--global-border-color);
+    padding-left: 1rem;
+  }
+
+  .stat {
+    display: block;
+    font-size: 2rem;
+    font-family: var(--global-heading-font);
+    color: var(--global-accent-color);
+  }
+
+  .mission {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .mission__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .mission__grid article {
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid color-mix(in srgb, var(--global-border-color) 40%, transparent);
+  }
+
+  .highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .highlight-card {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: rgba(15, 30, 22, 0.85);
+    border: var(--global-card-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .highlight-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .highlight-card div {
+    padding: 1.25rem;
+  }
+
+  .programs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .program-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .program-card {
+    padding: 1.25rem;
+    border-radius: 1rem;
+    background: rgba(7, 15, 10, 0.65);
+    border: 1px solid color-mix(in srgb, var(--global-border-alt-color) 50%, transparent);
+  }
+
+  .events {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
+  }
+
+  .event-date {
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    color: var(--global-accent-alt-color);
+  }
+
+  .event-card .link {
+    margin-top: 0.75rem;
+    display: inline-flex;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  .visit {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  .visit__image img {
+    width: 100%;
+    border-radius: 1.5rem;
+    object-fit: cover;
+    max-height: 420px;
+  }
+
+  .visit ul {
+    padding-left: 1.25rem;
+    color: color-mix(in srgb, var(--global-base-t-color) 80%, var(--global-base-b-alt-color));
+  }
+
+  .testimonials {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  blockquote {
+    margin: 0;
+  }
+
+  blockquote footer {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    color: var(--global-accent-alt-color);
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .cta__actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-hours {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  .contact-block a {
+    color: var(--global-link-color);
+    display: inline-block;
+    margin-bottom: 0.35rem;
+  }
+
+  .hours-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hours-block li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--global-border-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .site-map {
+    margin-top: clamp(2rem, 6vw, 4rem);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border-radius: 1.25rem;
+    border: var(--global-card-border);
+    background: rgba(5, 15, 9, 0.65);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .site-map h4 {
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    color: var(--global-accent-alt-color);
+  }
+
+  .site-map a,
+  .site-map span {
+    display: block;
+    color: var(--global-base-t-color);
+    margin-bottom: 0.35rem;
+  }
+
+  @media (max-width: 640px) {
+    .hero__stats {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .navigation {
+      position: static;
+    }
+  }
+</style>

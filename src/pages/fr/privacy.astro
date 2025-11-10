@@ -1,0 +1,80 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const derniereMiseAJour = '2025-01-05';
+---
+
+<Layout title="Politique de confidentialité | Espace Max Gros-Louis">
+  <section class="glass-panel policy">
+    <p class="eyebrow">Politique de confidentialité</p>
+    <h1>Protection des renseignements personnels.</h1>
+    <p class="smallprint">Dernière mise à jour : {derniereMiseAJour}</p>
+    <p>
+      Bienvenue sur le site maxgroslouis.com. Nous nous engageons à protéger vos renseignements personnels conformément à la Loi 25 et aux meilleures pratiques.
+      En utilisant le Site, vous consentez à la présente politique.
+    </p>
+
+    <h2>1. Collecte des renseignements</h2>
+    <p>Nous recueillons les informations que vous fournissez volontairement (nom, courriel, téléphone, etc.) lors de formulaires ou réservations.</p>
+
+    <h2>2. Utilisation</h2>
+    <p>Vos données servent à :</p>
+    <ul>
+      <li>Répondre à vos demandes et offrir les services requis;</li>
+      <li>Personnaliser votre expérience sur le Site;</li>
+      <li>Vous transmettre des informations sur les services achetés.</li>
+    </ul>
+
+    <h2>3. Partage</h2>
+    <p>Nous partageons uniquement lorsque :</p>
+    <ul>
+      <li>Cela est nécessaire pour fournir le service (p. ex. fournisseurs);</li>
+      <li>La loi l’exige;</li>
+      <li>Vous donnez votre consentement explicite.</li>
+    </ul>
+
+    <h2>4. Sécurité des données</h2>
+    <p>
+      Les informations sont conservées sur des serveurs sécurisés avec contrôle d’accès. Les transmissions sont chiffrées via SSL/TLS. Malgré ces mesures,
+      aucune méthode n’est totalement sécurisée; nous vous invitons à protéger aussi vos données.
+    </p>
+
+    <h2>5. Durée de conservation</h2>
+    <p>
+      Nous conservons les données seulement pour atteindre les objectifs visés ou respecter les obligations légales (ex. dossiers de réservation conservés jusqu’à 5 ans).
+    </p>
+
+    <h2>6. Vos droits</h2>
+    <p>
+      Vous pouvez demander l’accès, la rectification, la suppression ou la portabilité de vos données et retirer votre consentement. Écrivez à
+      <a href="mailto:info@maxgroslouis.com">info@maxgroslouis.com</a>.
+    </p>
+
+    <h2>7. Modifications</h2>
+    <p>Nous pouvons mettre à jour cette politique; la date de mise à jour apparaît en haut de la page.</p>
+
+    <h2>8. Contact</h2>
+    <p>Pour toute question : <a href="mailto:info@maxgroslouis.com">info@maxgroslouis.com</a>.</p>
+  </section>
+</Layout>
+
+<style>
+  .policy {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.1rem;
+  }
+
+  li {
+    margin-bottom: 0.35rem;
+  }
+
+  .smallprint {
+    color: color-mix(in srgb, var(--global-base-t-color) 70%, var(--global-base-b-alt-color));
+    font-size: 0.9rem;
+  }
+</style>

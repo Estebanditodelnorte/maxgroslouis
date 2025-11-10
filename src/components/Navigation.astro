@@ -1,0 +1,86 @@
+---
+const pathname = Astro.url.pathname;
+const isFrench = pathname.startsWith('/fr');
+const base = isFrench ? '/fr' : '';
+
+const homeHref = isFrench ? '/fr' : '/';
+const links = isFrench
+  ? [
+      { href: homeHref, label: 'Accueil' },
+      { href: `${base}/about`, label: 'À propos' },
+      { href: `${base}/exhibits`, label: 'Expositions' },
+      { href: `${base}/events`, label: 'Événements' },
+      { href: `${base}/membership`, label: 'Adhésion' },
+      { href: `${base}/visit`, label: 'Visite' },
+      { href: `${base}/contact`, label: 'Contact' },
+    ]
+  : [
+      { href: '/', label: 'Home' },
+      { href: '/about', label: 'About' },
+      { href: '/exhibits', label: 'Exhibits' },
+      { href: '/events', label: 'Events' },
+      { href: '/membership', label: 'Membership' },
+      { href: '/visit', label: 'Visit Us' },
+      { href: '/contact', label: 'Contact' },
+    ];
+---
+
+<nav class="navigation glass-panel">
+    <a class="logo" href={isFrench ? '/fr' : '/'}>
+        <img src="/images/webp/emgl-logo.webp" alt="Espace Max Oné Onti Gros-Louis logo" />
+    </a>
+    {links.map((link) => (
+        <a href={link.href}>{link.label}</a>
+    ))}
+</nav>
+
+<style>
+    .navigation {
+        margin: clamp(1rem, 4vw, 2rem) auto;
+        width: min(1200px, calc(100% - 2rem));
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: clamp(0.75rem, 2vw, 1.75rem);
+        background: rgba(13, 28, 20, 0.75);
+        border-radius: 999px;
+        padding: 0.85rem 1.5rem;
+        position: sticky;
+        top: 1rem;
+        z-index: 2;
+        align-items: center;
+    }
+
+    a {
+        color: var(--global-base-t-color);
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+    }
+
+    a:hover {
+        color: var(--global-background-color);
+        background: linear-gradient(120deg, var(--global-link-hover-color), var(--global-accent-color));
+        transform: translateY(-1px);
+    }
+
+    .logo {
+        padding: 0;
+        background: none;
+        transform: none;
+    }
+
+    .logo img {
+        width: 144px;
+        height: 144px;
+        object-fit: contain;
+        border-radius: 50%;
+        border: 1px solid color-mix(in srgb, var(--global-accent-alt-color) 40%, transparent);
+        background: rgba(5, 15, 9, 0.6);
+        padding: 0.25rem;
+    }
+</style>

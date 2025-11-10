@@ -1,0 +1,152 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const exhibits = [
+  {
+    title: 'Songs in Cedar',
+    description:
+      'An exhibition highlighting the artistry of carvers, mask-makers, and musical instruments that transform cedar into a carrier of knowledge.',
+    image: '/images/webp/forest-installation.webp',
+  },
+  {
+    title: 'Council Table Archives',
+    description:
+      'Max Gros-Louis met with chiefs, premiers, and world leaders to advance Indigenous rights. Visitors can hear excerpts from historic assemblies, including: Negotiations surrounding the James Bay and Northern Quebec Agreement (1973–1975), Recorded interviews from the 1970s–1990s, Audio archives and national broadcasts documenting his speeches and advocacy.',
+    image: '/images/webp/council-circle.webp',
+  },
+  {
+    title: 'Witnesses & Watchers',
+    description:
+      'Life-size carved figures paired with contemporary portraiture exploring how guardianship duties are passed to the next generation.',
+    image: '/images/webp/community-collection.webp',
+  },
+  {
+    title: 'Hands of the Land',
+    description:
+      'Rotating display of everyday tools, beadwork, and medicinal teachings photographed in families’ homes across Wendake.',
+    image: '/images/webp/visitor-elder.webp',
+  },
+];
+
+const labs = [
+  {
+    title: 'Conservation Studio',
+    detail: 'Small-group workshops on textile hydration, beadwork repair, and cedar bark preservation.',
+  },
+  {
+    title: 'Story Lab',
+    detail: 'Recording booth for visitors to share memories about Max Gros-Louis or forest stewardship practices.',
+  },
+  {
+    title: 'Digital Sovereignty Hub',
+    detail: 'Research residency digitizing wampum belts, maps, and films with Indigenous data governance frameworks.',
+  },
+];
+---
+
+<Layout title="Exhibits | Max Gros-Louis Museum">
+  <section class="exhibit-hero glass-panel">
+    <div>
+      <p class="eyebrow">Current Cycle</p>
+      <h1>Exhibitions rooted in heritage, voices, and continuity.</h1>
+      <p>
+        The Espace One Onti Max Gros-Louis invites visitors to explore the living memory of the Grand Chief and the Wendat Nation.
+        Our exhibitions bridge historical archives, oral traditions, and contemporary creation, presenting Wendat culture as both ancestral and
+        evolving. Each exhibition is co-curated with families, Elders, and community partners to ensure authenticity, respect, and reciprocity.
+      </p>
+      <a href="/visit" class="btn primary">Join the Waitlist</a>
+    </div>
+    <img src="/images/webp/mask-gallery.webp" alt="Carved masks displayed in the collections gallery" loading="lazy" />
+  </section>
+
+  <section class="exhibit-grid">
+    {exhibits.map((exhibit) => (
+      <article class="exhibit-card glass-panel">
+        <img src={exhibit.image} alt={exhibit.title} loading="lazy" />
+        <div>
+          <h2>{exhibit.title}</h2>
+          <p>{exhibit.description}</p>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="labs glass-panel">
+    <div class="section-heading">
+      <p class="eyebrow">Immersive Labs</p>
+      <h2>Participatory spaces built for learning and making.</h2>
+    </div>
+    <div class="lab-grid">
+      {labs.map((lab) => (
+        <article>
+          <h3>{lab.title}</h3>
+          <p>{lab.detail}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta glass-panel">
+    <div>
+      <p class="eyebrow">Bring the exhibition to you</p>
+      <h2>Traveling shows + loan program</h2>
+      <p>
+        Partner institutions can borrow select installations, recordings, and education kits. We prioritize Indigenous-run centers,
+        northern schools, and initiatives focused on language reclamation.
+      </p>
+    </div>
+    <a href="/contact" class="btn ghost">Start a conversation</a>
+  </section>
+</Layout>
+
+<style>
+  section {
+    margin-top: clamp(2rem, 6vw, 4rem);
+  }
+
+  .exhibit-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  .exhibit-hero img {
+    width: 100%;
+    border-radius: 1.25rem;
+    object-fit: cover;
+    max-height: 420px;
+  }
+
+  .exhibit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .exhibit-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+  }
+
+  .exhibit-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  .labs .lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+</style>

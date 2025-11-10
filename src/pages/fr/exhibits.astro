@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const expositions = [
+  {
+    titre: 'Chansons de cèdre',
+    description:
+      'Une exposition qui met en lumière le travail des sculpteurs, des créateurs de masques et des instruments qui transforment le cèdre en porteur de savoirs.',
+    image: '/images/webp/forest-installation.webp',
+  },
+  {
+    titre: 'Archives de la table du conseil',
+    description:
+      'Max Gros-Louis rencontrait chefs, premiers ministres et dirigeants du monde pour faire avancer les droits autochtones. Les visiteurs entendent des extraits historiques : négociations de la Convention de la Baie-James et du Nord québécois (1973-1975), entrevues des années 1970-1990 et archives radiophoniques documentant ses plaidoyers.',
+    image: '/images/webp/council-circle.webp',
+  },
+  {
+    titre: 'Témoins & Veilleurs',
+    description:
+      'Sculptures grandeur nature jumelées à des portraits contemporains explorant la transmission des responsabilités.',
+    image: '/images/webp/community-collection.webp',
+  },
+  {
+    titre: 'Mains du territoire',
+    description:
+      'Objets du quotidien, perles et plantes médicinales documentés dans les maisons familiales de Wendake.',
+    image: '/images/webp/visitor-elder.webp',
+  },
+];
+
+const labs = [
+  { titre: 'Studio de conservation', detail: 'Ateliers sur l’hydratation des textiles, la réparation du perlage et la préservation du cèdre.' },
+  { titre: 'Laboratoire des récits', detail: 'Cabine d’enregistrement pour raconter vos souvenirs ou traduire les archives.' },
+  { titre: 'Hub de souveraineté numérique', detail: 'Numérisation des wampums, cartes et films avec gouvernance autochtone des données.' },
+];
+---
+
+<Layout title="Expositions | Espace Max Gros-Louis">
+  <section class="exhibit-hero glass-panel">
+    <div>
+      <p class="eyebrow">Cycle actuel</p>
+      <h1>Des expositions ancrées dans l’héritage, les voix et la continuité.</h1>
+      <p>
+        L’Espace Oné Onti Max Gros-Louis invite les visiteurs à explorer la mémoire vivante du Grand Chef et de la Nation wendate. Les expositions tissent
+        archives historiques, traditions orales et création contemporaine pour présenter une culture à la fois ancestrale et en évolution. Chaque parcours est co-construit avec les familles, les aînés et les partenaires communautaires afin d’assurer authenticité, respect et réciprocité.
+      </p>
+      <a href="/fr/visit" class="btn primary">Joindre la liste d'attente</a>
+    </div>
+    <img src="/images/webp/mask-gallery.webp" alt="Masques exposés dans les réserves" loading="lazy" />
+  </section>
+
+  <section class="exhibit-grid">
+    {expositions.map((expo) => (
+      <article class="exhibit-card glass-panel">
+        <img src={expo.image} alt={expo.titre} loading="lazy" />
+        <div>
+          <h2>{expo.titre}</h2>
+          <p>{expo.description}</p>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="labs glass-panel">
+    <div class="section-heading">
+      <p class="eyebrow">Laboratoires immersifs</p>
+      <h2>Espaces participatifs pour apprendre et créer.</h2>
+    </div>
+    <div class="lab-grid">
+      {labs.map((lab) => (
+        <article>
+          <h3>{lab.titre}</h3>
+          <p>{lab.detail}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta glass-panel">
+    <div>
+      <p class="eyebrow">Expositions itinérantes</p>
+      <h2>Emmenez la collection dans votre communauté.</h2>
+      <p>Nous priorisons les centres autochtones, écoles nordiques et projets de revitalisation des langues.</p>
+    </div>
+    <a href="/fr/contact" class="btn ghost">Discuter d’une tournée</a>
+  </section>
+</Layout>
+
+<style>
+  section {
+    margin-top: clamp(2rem, 6vw, 4rem);
+  }
+
+  .exhibit-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  .exhibit-hero img {
+    width: 100%;
+    border-radius: 1.25rem;
+    object-fit: cover;
+    max-height: 420px;
+  }
+
+  .exhibit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .exhibit-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+  }
+
+  .exhibit-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  .lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+</style>

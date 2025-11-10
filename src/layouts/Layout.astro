@@ -1,0 +1,66 @@
+---
+import Navigation from '../components/Navigation.astro';
+const { title } = Astro.props;
+const pathname = Astro.url.pathname;
+const isFrench = pathname.startsWith('/fr');
+const altPath = (() => {
+  if (isFrench) {
+    const stripped = pathname.replace(/^\/fr/, '') || '/';
+    return stripped;
+  }
+  return pathname === '/' ? '/fr' : `/fr${pathname}`;
+})();
+const langLabel = isFrench ? 'English' : 'Français';
+const langCode = isFrench ? 'fr' : 'en';
+---
+
+<html lang={langCode}>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>{title}</title>
+    <style is:global>
+        @import '../styles/global.css';
+    </style>
+</head>
+<body>
+    <a class="lang-toggle" href={altPath}>{langLabel}</a>
+    <Navigation />
+    <main class="forest-shell glass-panel">
+        <slot />
+    </main>
+</body>
+
+<style>
+    body {
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    .forest-shell {
+        position: relative;
+        z-index: 1;
+        margin-top: clamp(1rem, 4vw, 3rem);
+        margin-bottom: clamp(2rem, 6vw, 4rem);
+    }
+
+    .lang-toggle {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 3;
+        padding: 0.4rem 0.9rem;
+        border-radius: 999px;
+        border: 1px solid var(--global-border-alt-color);
+        background: rgba(5, 15, 9, 0.8);
+        color: var(--global-base-t-color);
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        backdrop-filter: blur(6px);
+    }
+</style>
+</html>

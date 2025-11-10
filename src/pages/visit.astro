@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const hours = [
+  { label: 'Museum status', time: 'Closed to the public' },
+  { label: 'Next reopening', time: 'Date to be confirmed' },
+  { label: 'Private research visits', time: 'By appointment only' },
+];
+
+---
+
+<Layout title="Visit | Max Gros-Louis Museum">
+  <section class="visit-hero glass-panel">
+    <div>
+      <p class="eyebrow">Plan Your Visit</p>
+      <h1>🌿 A museum in preparation</h1>
+      <p>
+        The Espace Musée Oné Onti Max Gros-Louis is currently developing its permanent collection, exhibitions, and digital archive.
+        While the museum is not yet open to the general public, community, educational, and documentation activities are underway in Wendake.
+      </p>
+      <a href="https://maps.app.goo.gl/oHSR46FWgbfS8zmG9" class="btn primary" target="_blank" rel="noreferrer">Open Maps</a>
+    </div>
+    <img src="/images/webp/visitor-elder.webp" alt="Visitor exploring carved sculptures in the gallery" loading="lazy" />
+  </section>
+
+  <section class="hours glass-panel">
+    <div class="section-heading">
+      <p class="eyebrow">Status</p>
+      <h2>The museum is currently closed to the public.</h2>
+    </div>
+    <ul>
+      {hours.map((entry) => (
+        <li>
+          <span>{entry.label}</span>
+          <strong>{entry.time}</strong>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="travel">
+    <article class="glass-panel">
+      <h3>Address</h3>
+      <p>
+        97 Boulevard Bastien<br />
+        Wendake QC<br />
+        G0A 4V0
+      </p>
+      <p>Parking on site is limited; we encourage shuttle or bike travel.</p>
+    </article>
+    <article class="glass-panel">
+      <h3>Transit</h3>
+      <p>
+        RTC Routes 74 and 283 stop at Boulevard Bastien / Rue Chef Émile-Picard, within a short walking distance of the museum site.
+        For schedules and real-time information, visit
+        <a href="https://www.rtcquebec.ca" target="_blank" rel="noreferrer">rtcquebec.ca</a>.
+      </p>
+    </article>
+    <article class="glass-panel">
+      <h3>Guided Groups</h3>
+      <p>Book at least 2 weeks ahead for school groups or private tours (max 25 per guide).</p>
+    </article>
+  </section>
+
+  <section class="tips glass-panel">
+    <div class="section-heading">
+      <p class="eyebrow">Visitor Tips</p>
+      <h2>Make the most of your time onsite.</h2>
+    </div>
+    <ul>
+      <li>The Espace Musée One Onti Max Gros-Louis is currently closed to the public while collection inventory and digitization work take place.</li>
+      <li>
+        <a href="https://www.facebook.com/profile.php?id=61581850003312" target="_blank" rel="noreferrer">Follow</a>
+        our updates to know when exhibitions and guided visits begin.
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  section {
+    margin-top: clamp(2rem, 6vw, 4rem);
+  }
+
+  .visit-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .visit-hero img {
+    width: 100%;
+    border-radius: 1.25rem;
+    object-fit: cover;
+  }
+
+  .hours ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hours li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--global-border-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .travel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .tips ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+</style>

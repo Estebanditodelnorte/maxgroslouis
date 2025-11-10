@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tiers = [
+  {
+    name: 'Circle of Memory',
+    amount: '$60 / year',
+    benefits: [
+      'Access to all museum communications and invitations to pre-opening events',
+      'Member newsletters featuring collection highlights and project updates',
+      'Recognition in the annual community bulletin',
+    ],
+  },
+  {
+    name: 'Heritage Guardians',
+    amount: '$180 / year',
+    benefits: [
+      'All Circle of Memory benefits',
+      'Invitation to annual partner gathering and cultural evening with Elders',
+      'Priority access to educational workshops and community activities',
+      'Name included on our Supporters Wall at opening',
+    ],
+  },
+  {
+    name: 'Legacy Stewards',
+    amount: '$500 / year',
+    benefits: [
+      'All Heritage Guardians benefits',
+      'Private behind-the-scenes consultation with curatorial or conservation teams',
+      'Opportunity to sponsor an educational initiative or exhibition element',
+      'Prominent recognition in museum materials',
+    ],
+  },
+];
+---
+
+<Layout title="Membership | Max Gros-Louis Museum">
+  <section class="membership-hero glass-panel">
+    <div>
+      <p class="eyebrow">Support the Vision</p>
+      <h1>Your contribution keeps Wendat culture alive.</h1>
+      <p>
+        Membership and donations help us preserve, document, and share the legacy of Grand Chief Max Gros-Louis. Each membership supports
+        artifact conservation, digitization, educational programs, and intergenerational activities that strengthen cultural continuity.
+      </p>
+      <a href="/contact" class="btn primary">Talk with our team</a>
+    </div>
+    <img src="/images/webp/community-collection.webp" alt="Visitors exploring sculptures and carvings" loading="lazy" />
+  </section>
+
+  <section class="tier-grid">
+    {tiers.map((tier) => (
+      <article class="tier glass-panel">
+        <h2>{tier.name}</h2>
+        <p class="amount">{tier.amount}</p>
+        <ul>
+          {tier.benefits.map((benefit) => (
+            <li>{benefit}</li>
+          ))}
+        </ul>
+        <a class="btn ghost" href="/contact">Join this tier</a>
+      </article>
+    ))}
+  </section>
+
+  <section class="impact glass-panel">
+    <div>
+      <p class="eyebrow">Impact Snapshot</p>
+      <h2>Where your contribution travels.</h2>
+    </div>
+    <div class="impact-grid">
+      <article>
+        <span class="stat">42%</span>
+        <p>Collection inventory, digitization, and preventive conservation.</p>
+      </article>
+      <article>
+        <span class="stat">31%</span>
+        <p>Research and exhibition development.</p>
+      </article>
+      <article>
+        <span class="stat">27%</span>
+        <p>Administration and outreach.</p>
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  section {
+    margin-top: clamp(2rem, 6vw, 4rem);
+  }
+
+  .membership-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .membership-hero img {
+    width: 100%;
+    border-radius: 1.25rem;
+    object-fit: cover;
+  }
+
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .tier ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .amount {
+    font-size: 1.25rem;
+    color: var(--global-accent-color);
+    letter-spacing: 0.1em;
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+</style>

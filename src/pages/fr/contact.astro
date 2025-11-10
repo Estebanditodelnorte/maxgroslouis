@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Contact | Espace Max Gros-Louis">
+  <section class="contact-hero glass-panel">
+    <div>
+      <p class="eyebrow">Restez en contact</p>
+      <h1>Communiquez pour planifier une visite, proposer un projet ou partager une histoire.</h1>
+      <p>
+        Nous répondons sous 2 jours ouvrables à <a href="mailto:info@maxgroslouis.com">info@maxgroslouis.com</a>. Pour les demandes urgentes, composez
+        <a href="tel:+18197909855">819-790-9855</a> entre 10 h et 18 h (HE).
+      </p>
+      <p class="contact-line">
+        <strong>Courriel</strong><br />
+        <a href="mailto:info@maxgroslouis.com">info@maxgroslouis.com</a>
+      </p>
+    </div>
+    <img src="/images/webp/community-speaker.webp" alt="Membre de la communauté au micro" loading="lazy" />
+  </section>
+
+  <section class="form-section glass-panel">
+    <form netlify>
+      <div class="field">
+        <label for="name">Nom</label>
+        <input id="name" name="name" type="text" placeholder="Votre nom" required />
+      </div>
+      <div class="field">
+        <label for="email">Courriel</label>
+        <input id="email" name="email" type="email" placeholder="vous@example.com" required />
+      </div>
+      <div class="field">
+        <label for="topic">Sujet</label>
+        <select id="topic" name="topic">
+          <option>Planifier une visite</option>
+          <option>Prêt ou partenariat</option>
+          <option>Demande média</option>
+          <option>Partager une histoire</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Comment pouvons-nous vous aider?" required></textarea>
+      </div>
+      <button class="btn primary" type="submit">Envoyer</button>
+    </form>
+  </section>
+</Layout>
+
+<style>
+  section {
+    margin-top: clamp(2rem, 6vw, 4rem);
+  }
+
+  .contact-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .contact-hero img {
+    width: 100%;
+    border-radius: 1.25rem;
+    object-fit: cover;
+  }
+
+  .contact-line {
+    margin-top: 1rem;
+    color: color-mix(in srgb, var(--global-base-t-color) 85%, var(--global-base-b-alt-color));
+  }
+
+  form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  input,
+  select,
+  textarea {
+    border-radius: 0.75rem;
+    border: 1px solid var(--global-border-alt-color);
+    background: rgba(5, 15, 9, 0.4);
+    color: var(--global-base-t-color);
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 2px solid var(--global-accent-color);
+    border-color: var(--global-accent-color);
+  }
+</style>

@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const valeurs = [
+  {
+    titre: 'Réciprocité',
+    detail: 'Chaque exposition et programme est cocréé avec les familles et gardiens du savoir pour garder l’équilibre entre donner et recevoir.',
+  },
+  {
+    titre: 'Continuité',
+    detail: 'Nous protégeons les langues, chants et archives orales tout en soutenant les nouvelles générations qui prennent le relais.',
+  },
+  {
+    titre: 'Soin du territoire',
+    detail: 'La forêt campus et les collections sont traitées comme des proches vivants, guidées par les pratiques écologiques autochtones.',
+  },
+];
+
+const jalons = [
+  {
+    annee: '1963',
+    titre: 'Premières assemblées publiques',
+    detail: 'Max Gros-Louis organise des rencontres diplomatiques qui inspirent les cercles de gouvernance actuels.',
+  },
+  {
+    annee: 'Années 1980',
+    titre: 'Archives communautaires',
+    detail: 'Les familles offrent sculptures, vêtements et enregistrements, fondant la collection permanente.',
+  },
+  {
+    annee: '2024',
+    titre: 'Expansion du campus forestier',
+    detail: 'Ouverture de 120 acres protégés accessibles au public avec sentiers, cabanes artistiques et laboratoires.',
+  },
+];
+
+const conseil = [
+  {
+    nom: 'Isa Gros-Louis',
+    role: 'Présidente & directrice générale',
+    focus: 'Orientation stratégique, partenariats et leadership quotidien du musée.',
+  },
+  {
+    nom: 'Me Louis-Philippe Baillargeon',
+    role: 'Vice-président',
+    focus: 'Gouvernance, soutien juridique et alignement des politiques avec les valeurs communautaires.',
+  },
+  {
+    nom: 'Justin Ndjock-Tadjore',
+    role: 'Administrateur',
+    focus: 'Finances, opérations et suivi des performances des nouveaux projets.',
+  },
+];
+---
+
+<Layout title="À propos | Espace Max Gros-Louis">
+  <section class="about-hero glass-panel">
+    <div>
+      <p class="eyebrow">Notre histoire</p>
+      <h1>Poursuivre la vision du Grand Chef Max Oné Onti Gros-Louis.</h1>
+      <p>
+        Le musée est né des salons, des salles communautaires et des clairières où Max invitait les jeunes et les leaders à rêver à un avenir souverain.
+        Aujourd’hui, nous poursuivons ce travail par des expositions immersives, de la recherche et des cérémonies qui honorent toutes les générations.
+      </p>
+      <div class="hero-stats">
+        <div>
+          <span class="stat">120</span>
+          <span>acres de campus protégé</span>
+        </div>
+        <div>
+          <span class="stat">4 500+</span>
+          <span>objets & archives vivantes</span>
+        </div>
+        <div>
+          <span class="stat">38</span>
+          <span>résidences par année</span>
+        </div>
+      </div>
+    </div>
+    <figure>
+      <img src="/images/webp/elder-portrait.webp" alt="Aînée dans les réserves du musée" loading="lazy" />
+      <figcaption>Thérèse Gros-Louis partage des récits familiaux avec l’équipe de conservation.</figcaption>
+    </figure>
+  </section>
+
+  <section class="values">
+    <div class="section-heading">
+      <p class="eyebrow">Principes</p>
+      <h2>Ce qui garde le cercle en mouvement.</h2>
+    </div>
+    <div class="value-grid">
+      {valeurs.map((valeur) => (
+        <article class="glass-panel">
+          <h3>{valeur.titre}</h3>
+          <p>{valeur.detail}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="timeline glass-panel">
+    <div class="section-heading">
+      <p class="eyebrow">Jalons</p>
+      <h2>Moments qui façonnent le musée.</h2>
+    </div>
+    <ol>
+      {jalons.map((jalon) => (
+        <li>
+          <span class="year">{jalon.annee}</span>
+          <div>
+            <h3>{jalon.titre}</h3>
+            <p>{jalon.detail}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="advisors">
+    <div class="section-heading">
+      <p class="eyebrow">Gouvernance</p>
+      <h2>Le conseil d’administration (2025–2026) veille à l’intégrité culturelle et institutionnelle.</h2>
+    </div>
+    <div class="advisor-grid">
+      {conseil.map((membre) => (
+        <article class="glass-panel">
+          <h3>{membre.nom}</h3>
+          <p class="role">{membre.role}</p>
+          <p>{membre.focus}</p>
+        </article>
+      ))}
+    </div>
+    <p class="advisory-note">
+      Un Cercle consultatif culturel et patrimonial, composé d’aînés, d’artistes et de détenteurs de savoirs, veille au respect des protocoles wendats pour toutes les activités du musée.
+    </p>
+  </section>
+</Layout>
+
+<style>
+  section {
+    margin-top: clamp(2rem, 6vw, 4rem);
+  }
+
+  .about-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figure img {
+    width: 100%;
+    border-radius: 1.25rem;
+    object-fit: cover;
+  }
+
+  figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: color-mix(in srgb, var(--global-base-t-color) 80%, var(--global-base-b-alt-color));
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-stats .stat {
+    font-size: 2rem;
+    font-family: var(--global-heading-font);
+    color: var(--global-accent-color);
+    display: block;
+  }
+
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .timeline ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .timeline li {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .timeline .year {
+    font-size: 1.2rem;
+    color: var(--global-accent-alt-color);
+    letter-spacing: 0.1em;
+  }
+
+  .advisor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .role {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    color: var(--global-accent-alt-color);
+  }
+
+  .advisory-note {
+    margin-top: 1rem;
+    color: color-mix(in srgb, var(--global-base-t-color) 85%, var(--global-base-b-alt-color));
+  }
+</style>

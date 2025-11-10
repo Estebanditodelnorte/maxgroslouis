@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const values = [
+  {
+    title: 'Reciprocity',
+    detail: 'Every exhibition and gathering is co-created with Elders, artists, and land stewards to ensure balance between giving and receiving.',
+  },
+  {
+    title: 'Continuity',
+    detail: 'We protect language, song, and ceremony recordings while investing in programs that invite new generations to lead.',
+  },
+  {
+    title: 'Stewardship',
+    detail: 'Our forest campus and collections are treated as living relatives, guided by ancestral ecological practices.',
+  },
+];
+
+const milestones = [
+  {
+    year: '1963',
+    title: 'First Public Assemblies',
+    detail: 'Max Gros-Louis hosts diplomatic gatherings that inspire today’s council dialogues and youth summits.',
+  },
+  {
+    year: '1980s',
+    title: 'Community Archives',
+    detail: 'Families donate carvings, garments, and recordings, forming the foundation of the museum’s permanent collection.',
+  },
+  {
+    year: '2024',
+    title: 'Forest Campus Expansion',
+    detail: '120-acre protected woodland opens to the public with guided walks, research stations, and artist cabins.',
+  },
+];
+
+const board = [
+  {
+    name: 'Isa Gros-Louis',
+    role: 'President & Executive Director',
+    focus: 'Stewardship of strategic vision, partnerships, and daily museum leadership.',
+  },
+  {
+    name: 'Me Louis-Philippe Baillargeon',
+    role: 'Vice-President',
+    focus: 'Governance, legal guidance, and policy alignment with community values.',
+  },
+  {
+    name: 'Justin Ndjock-Tadjore',
+    role: 'Administrator',
+    focus: 'Finance, operations, and performance oversight for emerging initiatives.',
+  },
+];
+---
+
+<Layout title="About Max Gros-Louis Museum">
+  <section class="about-hero glass-panel">
+    <div>
+      <p class="eyebrow">Our Story</p>
+      <h1>Carrying Grand Chief Max Gros-Louis’ vision into the next century.</h1>
+      <p>
+        The museum was born from living rooms, community halls, and forest clearings where Max welcomed leaders and youth to imagine
+        a sovereign, culturally vibrant future. Today we continue that invitation through immersive exhibitions, land-based research,
+        and community ceremonies that honour every generation.
+      </p>
+      <div class="hero-stats">
+        <div>
+          <span class="stat">120</span>
+          <span>acres of protected campus</span>
+        </div>
+        <div>
+          <span class="stat">4,500+</span>
+          <span>archival objects + recordings</span>
+        </div>
+        <div>
+          <span class="stat">38</span>
+          <span>resident artists & researchers yearly</span>
+        </div>
+      </div>
+    </div>
+    <figure>
+      <img src="/images/webp/elder-portrait.webp" alt="Elder speaking in the museum’s collections room" loading="lazy" />
+      <figcaption>Elder Thérèse Gros-Louis shares family stories during an archive session.</figcaption>
+    </figure>
+  </section>
+
+  <section class="values">
+    <div class="section-heading">
+      <p class="eyebrow">Guiding Principles</p>
+      <h2>The ways we keep the circle moving.</h2>
+    </div>
+    <div class="value-grid">
+      {values.map((value) => (
+        <article class="glass-panel">
+          <h3>{value.title}</h3>
+          <p>{value.detail}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="timeline glass-panel">
+    <div class="section-heading">
+      <p class="eyebrow">Milestones</p>
+      <h2>Moments that shaped the museum.</h2>
+    </div>
+    <ol>
+      {milestones.map((milestone) => (
+        <li>
+          <span class="year">{milestone.year}</span>
+          <div>
+            <h3>{milestone.title}</h3>
+            <p>{milestone.detail}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section class="advisors">
+    <div class="section-heading">
+      <p class="eyebrow">Governance</p>
+      <h2>The Board of Directors (2025–2026) safeguards institutional governance and cultural integrity.</h2>
+    </div>
+    <div class="advisor-grid">
+      {board.map((member) => (
+        <article class="glass-panel">
+          <h3>{member.name}</h3>
+          <p class="role">{member.role}</p>
+          <p>{member.focus}</p>
+        </article>
+      ))}
+    </div>
+    <p class="advisory-note">
+      A Cultural and Heritage Advisory Circle—composed of Elders, artists, and knowledge keepers—ensures that all museum activities respect Wendat cultural protocols.
+    </p>
+  </section>
+
+  <section class="gallery-panel glass-panel">
+    <div>
+      <p class="eyebrow">Behind the Scenes</p>
+      <h2>Collecting, conserving, and celebrating together.</h2>
+      <p>
+        We document each artifact’s story directly from the hands who cared for it. Field audio, film, and oral histories are preserved
+        alongside carvings, textiles, and treaty documents so future visitors experience the full context.
+      </p>
+      <a href="/exhibits" class="btn primary">Explore Exhibits</a>
+    </div>
+    <div class="gallery-images">
+      <img src="/images/webp/mask-gallery.webp" alt="Masks and regalia on shelves inside the collections room" loading="lazy" />
+      <img src="/images/webp/community-collection.webp" alt="Visitors exploring carved figures and sculptures" loading="lazy" />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  section {
+    margin-top: clamp(2rem, 6vw, 4rem);
+  }
+
+  .about-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figure img {
+    width: 100%;
+    border-radius: 1.25rem;
+    object-fit: cover;
+  }
+
+  figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: color-mix(in srgb, var(--global-base-t-color) 80%, var(--global-base-b-alt-color));
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero-stats .stat {
+    font-size: 2rem;
+    font-family: var(--global-heading-font);
+    color: var(--global-accent-color);
+    display: block;
+  }
+
+  .values .value-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .timeline ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .timeline li {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .timeline .year {
+    font-size: 1.2rem;
+    color: var(--global-accent-alt-color);
+    letter-spacing: 0.1em;
+  }
+
+  .advisors .advisor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .role {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    color: var(--global-accent-alt-color);
+  }
+
+  .advisory-note {
+    margin-top: 1rem;
+    color: color-mix(in srgb, var(--global-base-t-color) 85%, var(--global-base-b-alt-color));
+  }
+
+  .gallery-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  .gallery-images {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .gallery-images img {
+    width: 100%;
+    border-radius: 1.25rem;
+    object-fit: cover;
+    max-height: 240px;
+  }
+</style>

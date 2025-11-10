@@ -1,0 +1,131 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const niveaux = [
+  {
+    nom: 'Cercle de la mémoire',
+    prix: '60 $ / an',
+    avantages: [
+      'Accès à toutes les communications du musée et invitations aux événements préouverture',
+      'Infolettres aux membres avec faits saillants des collections et des projets',
+      'Mention dans le bulletin communautaire annuel',
+    ],
+  },
+  {
+    nom: 'Gardiennes du patrimoine',
+    prix: '180 $ / an',
+    avantages: [
+      'Tous les avantages du Cercle de la mémoire',
+      'Invitation au rassemblement annuel des partenaires et à la soirée culturelle avec les aînés',
+      'Accès prioritaire aux ateliers éducatifs et activités communautaires',
+      'Nom inscrit sur le mur des alliés lors de l’ouverture',
+    ],
+  },
+  {
+    nom: 'Intendants de l’héritage',
+    prix: '500 $ / an',
+    avantages: [
+      'Tous les avantages des Gardiennes du patrimoine',
+      'Consultation privée en coulisses avec les équipes de conservation ou de curation',
+      'Possibilité de parrainer une initiative éducative ou un élément d’exposition',
+      'Reconnaissance mise en valeur dans les communications du musée',
+    ],
+  },
+];
+---
+
+<Layout title="Adhésion | Espace Max Gros-Louis">
+  <section class="membership-hero glass-panel">
+    <div>
+      <p class="eyebrow">Soutenir</p>
+      <h1>Votre contribution maintient la culture wendate bien vivante.</h1>
+      <p>
+        Les adhésions et dons permettent de préserver, documenter et partager l’héritage du Grand Chef Max Gros-Louis. Chaque adhésion soutient
+        la conservation des artefacts, la numérisation, les programmes éducatifs et les activités intergénérationnelles qui renforcent la continuité culturelle.
+      </p>
+      <a href="/fr/contact" class="btn primary">Parler avec notre équipe</a>
+    </div>
+    <img src="/images/webp/community-collection.webp" alt="Visiteurs explorant les collections" loading="lazy" />
+  </section>
+
+  <section class="tier-grid">
+    {niveaux.map((niveau) => (
+      <article class="tier glass-panel">
+        <h2>{niveau.nom}</h2>
+        <p class="amount">{niveau.prix}</p>
+        <ul>
+          {niveau.avantages.map((avantage) => (
+            <li>{avantage}</li>
+          ))}
+        </ul>
+        <a class="btn ghost" href="/fr/contact">Joindre ce niveau</a>
+      </article>
+    ))}
+  </section>
+
+  <section class="impact glass-panel">
+    <div>
+      <p class="eyebrow">Impact</p>
+      <h2>Comment les contributions sont réparties.</h2>
+    </div>
+    <div class="impact-grid">
+      <article>
+        <span class="stat">42 %</span>
+        <p>Inventaire des collections, numérisation et conservation préventive.</p>
+      </article>
+      <article>
+        <span class="stat">31 %</span>
+        <p>Recherche et développement d’expositions.</p>
+      </article>
+      <article>
+        <span class="stat">27 %</span>
+        <p>Administration et rayonnement.</p>
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  section {
+    margin-top: clamp(2rem, 6vw, 4rem);
+  }
+
+  .membership-hero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .membership-hero img {
+    width: 100%;
+    border-radius: 1.25rem;
+    object-fit: cover;
+  }
+
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .tier ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .amount {
+    font-size: 1.25rem;
+    color: var(--global-accent-color);
+    letter-spacing: 0.1em;
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+</style>

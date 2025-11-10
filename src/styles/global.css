@@ -1,0 +1,122 @@
+:root {
+    --global-palette1: #14201C; /* evergreen night (updated) */
+    --global-palette2: #0e2217; /* deep pine */
+    --global-palette3: #1c3a27; /* cedar */
+    --global-palette4: #355942; /* moss core */
+    --global-palette5: #5f7f5f; /* sage */
+    --global-palette6: #d7e0cf; /* morning mist */
+    --global-palette7: #9ad2c2; /* cool accent */
+    --global-palette8: #f0c365; /* warm glow */
+    --global-palette9: #3a1f0d; /* bark */
+
+    --global-body-font: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+    --global-heading-font: 'Cormorant Garamond', 'Times New Roman', serif;
+
+    --global-accent-color: var(--global-palette8);
+    --global-accent-alt-color: var(--global-palette7);
+    --global-base-b-color: var(--global-palette6);
+    --global-base-b-alt-color: var(--global-palette5);
+    --global-base-t-color: var(--global-palette6);
+    --global-base-t-alt-color: var(--global-palette7);
+    --global-background-color: var(--global-palette1);
+    --global-background-alt-color: var(--global-palette2);
+    --global-border-color: color-mix(in srgb, var(--global-palette6) 20%, transparent);
+    --global-border-alt-color: color-mix(in srgb, var(--global-palette7) 35%, transparent);
+    --global-link-color: var(--global-palette7);
+    --global-link-hover-color: var(--global-palette8);
+    --global-card-bg: color-mix(in srgb, var(--global-palette6) 12%, transparent);
+    --global-card-border: 1px solid color-mix(in srgb, var(--global-palette6) 28%, transparent);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--global-body-font);
+    background-color: var(--global-background-color);
+    /* Flat background: no gradient or image */
+    color: var(--global-base-t-color);
+    margin: 0;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+main {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    padding: 2rem clamp(1rem, 4vw, 3rem) 3rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--global-heading-font);
+    color: var(--global-base-t-alt-color);
+    letter-spacing: 0.04em;
+}
+
+p {
+    color: color-mix(in srgb, var(--global-base-t-color) 90%, var(--global-base-b-alt-color));
+}
+
+a {
+    color: var(--global-link-color);
+    text-decoration: none;
+    transition: color 200ms ease, text-shadow 200ms ease;
+}
+
+a:hover {
+    color: var(--global-link-hover-color);
+    text-shadow: 0 0 12px rgba(240, 195, 101, 0.45);
+}
+
+.glass-panel {
+    background: var(--global-card-bg);
+    border: var(--global-card-border);
+    border-radius: 1.25rem;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(8px);
+    padding: clamp(1.5rem, 3vw, 2.75rem);
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    color: var(--global-accent-alt-color);
+    margin: 0;
+}
+
+.section-heading {
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    border-radius: 999px;
+    padding: 0.85rem 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, var(--global-link-color), var(--global-accent-color));
+    color: var(--global-background-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.btn.ghost {
+    border-color: var(--global-border-alt-color);
+    color: var(--global-base-t-color);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
