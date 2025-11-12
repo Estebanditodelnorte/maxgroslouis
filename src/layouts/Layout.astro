@@ -1,5 +1,6 @@
 ---
 import Navigation from '../components/Navigation.astro';
+import PageFooter from '../components/PageFooter.astro';
 const { title } = Astro.props;
 const pathname = Astro.url.pathname;
 const isFrench = pathname.startsWith('/fr');
@@ -32,6 +33,7 @@ const langCode = isFrench ? 'fr' : 'en';
     <main class="forest-shell glass-panel">
         <slot />
     </main>
+    {pathname !== '/' && pathname !== '/fr' && <PageFooter isFrench={isFrench} />}
 </body>
 
 <style>
@@ -62,5 +64,6 @@ const langCode = isFrench ? 'fr' : 'en';
         text-transform: uppercase;
         backdrop-filter: blur(6px);
     }
+
 </style>
 </html>

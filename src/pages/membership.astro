@@ -3,33 +3,31 @@ import Layout from '../layouts/Layout.astro';
 
 const tiers = [
   {
-    name: 'Circle of Memory',
+    name: 'Membership Payment',
     amount: '$60 / year',
     benefits: [
-      'Access to all museum communications and invitations to pre-opening events',
-      'Member newsletters featuring collection highlights and project updates',
-      'Recognition in the annual community bulletin',
+      'A fee of $60 is expected annually for membership renewal. Please make your payment promptly and keep proof of payment for your records.',
     ],
+    ctaLabel: 'Paypal',
+    ctaHref: '/contact',
   },
   {
-    name: 'Heritage Guardians',
-    amount: '$180 / year',
+    name: 'Give your time',
+    amount: 'Free',
     benefits: [
-      'All Circle of Memory benefits',
-      'Invitation to annual partner gathering and cultural evening with Elders',
-      'Priority access to educational workshops and community activities',
-      'Name included on our Supporters Wall at opening',
+      "We welcome individuals who wish to contribute their time and expertise to support the museum's mission. Contact us to inquire about current volunteer opportunities.",
     ],
+    ctaLabel: 'Contact Us',
+    ctaHref: '/contact',
   },
   {
-    name: 'Legacy Stewards',
-    amount: '$500 / year',
+    name: 'Make a donation',
+    amount: 'Any amount',
     benefits: [
-      'All Heritage Guardians benefits',
-      'Private behind-the-scenes consultation with curatorial or conservation teams',
-      'Opportunity to sponsor an educational initiative or exhibition element',
-      'Prominent recognition in museum materials',
+      'A tax receipt can be issued for amounts above $20. Please keep proof of payment for your records.',
     ],
+    ctaLabel: 'Donate Now!',
+    ctaHref: '/contact',
   },
 ];
 ---
@@ -58,7 +56,7 @@ const tiers = [
             <li>{benefit}</li>
           ))}
         </ul>
-        <a class="btn ghost" href="/contact">Join this tier</a>
+        <a class="btn ghost" href={tier.ctaHref ?? '/contact'}>{tier.ctaLabel ?? 'Paypal'}</a>
       </article>
     ))}
   </section>

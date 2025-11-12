@@ -1,0 +1,97 @@
+---
+const { isFrench = false } = Astro.props;
+
+const email = 'espacemaxoneontigroslouis@gmail.com';
+const phone = '819-790-9888';
+const phoneHref = 'tel:+18197909888';
+const address = '97 Boulevard Bastien, Wendake QC';
+const facebookUrl = 'https://www.facebook.com/profile.php?id=61581850003312';
+
+const exploreLinks = isFrench
+  ? [
+      { href: '/fr', label: 'Accueil' },
+      { href: '/fr/about', label: 'À propos' },
+      { href: '/fr/exhibits', label: 'Expositions' },
+      { href: '/fr/events', label: 'Événements' },
+    ]
+  : [
+      { href: '/', label: 'Home' },
+      { href: '/about', label: 'About' },
+      { href: '/exhibits', label: 'Exhibits' },
+      { href: '/events', label: 'Events' },
+    ];
+
+const planLinks = isFrench
+  ? [
+      { href: '/fr/visit', label: 'Visiter' },
+      { href: '/fr/membership', label: 'Adhésion' },
+      { href: '/fr/contact', label: 'Contact' },
+    ]
+  : [
+      { href: '/visit', label: 'Visit' },
+      { href: '/membership', label: 'Membership' },
+      { href: '/contact', label: 'Contact' },
+    ];
+
+const labels = isFrench
+  ? { explore: 'Explorer', plan: 'Planifier', connect: 'Contact', privacy: 'Politique de confidentialité' }
+  : { explore: 'Explore', plan: 'Plan', connect: 'Connect', privacy: 'Privacy Policy' };
+
+const privacyHref = isFrench ? '/fr/privacy' : '/privacy';
+---
+
+<footer class="site-map site-map--dark">
+  <div>
+    <h4>{labels.explore}</h4>
+    {exploreLinks.map((link) => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+  </div>
+  <div>
+    <h4>{labels.plan}</h4>
+    {planLinks.map((link) => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+  </div>
+  <div>
+    <h4>{labels.connect}</h4>
+    <a href={`mailto:${email}`}>{email}</a>
+    <a href={phoneHref}>{phone}</a>
+    <span>{address}</span>
+    <a href={privacyHref}>{labels.privacy}</a>
+    <a href={facebookUrl} target="_blank" rel="noreferrer">Facebook</a>
+  </div>
+</footer>
+
+<style>
+  .site-map {
+    margin-top: clamp(2rem, 6vw, 4rem);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border-radius: 1.25rem;
+    border: var(--global-card-border);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .site-map--dark {
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid color-mix(in srgb, var(--global-border-color) 80%, transparent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  h4 {
+    margin: 0 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    color: var(--global-accent-alt-color);
+  }
+
+  a,
+  span {
+    display: block;
+    color: var(--global-base-t-color);
+    margin-bottom: 0.35rem;
+  }
+</style>

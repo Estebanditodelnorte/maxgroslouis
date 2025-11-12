@@ -11,37 +11,17 @@ const exhibits = [
   {
     title: 'Council Table Archives',
     description:
-      'Max Gros-Louis met with chiefs, premiers, and world leaders to advance Indigenous rights. Visitors can hear excerpts from historic assemblies, including: Negotiations surrounding the James Bay and Northern Quebec Agreement (1973–1975), Recorded interviews from the 1970s–1990s, Audio archives and national broadcasts documenting his speeches and advocacy.',
+      'Visitors can see pictures from historic assemblies, including: Negotiations surrounding the James Bay and Northern Quebec Agreement (1973–1975), archives and national broadcasts documenting his speeches and advocacy.',
     image: '/images/webp/council-circle.webp',
   },
   {
-    title: 'Witnesses & Watchers',
+    title: '100% Nordique',
     description:
-      'Life-size carved figures paired with contemporary portraiture exploring how guardianship duties are passed to the next generation.',
-    image: '/images/webp/community-collection.webp',
-  },
-  {
-    title: 'Hands of the Land',
-    description:
-      'Rotating display of everyday tools, beadwork, and medicinal teachings photographed in families’ homes across Wendake.',
-    image: '/images/webp/visitor-elder.webp',
+      'Grand Chief Max Gros-Louis was a devoted fan of the Québec Nordiques. Visitors can admire signed sticks, jerseys, photographs, and autographs from the players he admired most.',
+    image: '/images/webp/max-nordiques3.webp',
   },
 ];
 
-const labs = [
-  {
-    title: 'Conservation Studio',
-    detail: 'Small-group workshops on textile hydration, beadwork repair, and cedar bark preservation.',
-  },
-  {
-    title: 'Story Lab',
-    detail: 'Recording booth for visitors to share memories about Max Gros-Louis or forest stewardship practices.',
-  },
-  {
-    title: 'Digital Sovereignty Hub',
-    detail: 'Research residency digitizing wampum belts, maps, and films with Indigenous data governance frameworks.',
-  },
-];
 ---
 
 <Layout title="Exhibits | Max Gros-Louis Museum">
@@ -71,28 +51,13 @@ const labs = [
     ))}
   </section>
 
-  <section class="labs glass-panel">
-    <div class="section-heading">
-      <p class="eyebrow">Immersive Labs</p>
-      <h2>Participatory spaces built for learning and making.</h2>
-    </div>
-    <div class="lab-grid">
-      {labs.map((lab) => (
-        <article>
-          <h3>{lab.title}</h3>
-          <p>{lab.detail}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
   <section class="cta glass-panel">
     <div>
       <p class="eyebrow">Bring the exhibition to you</p>
       <h2>Traveling shows + loan program</h2>
       <p>
-        Partner institutions can borrow select installations, recordings, and education kits. We prioritize Indigenous-run centers,
-        northern schools, and initiatives focused on language reclamation.
+        Espace Max Oné Onti Gros-Louis has a few loans with our partners such as Musée de la civilisation, Musée Huron-Wendat, and others.
+        Partner institutions can borrow select items. Contact us for traveling shows and learn about our loan program.
       </p>
     </div>
     <a href="/contact" class="btn ghost">Start a conversation</a>
@@ -136,12 +101,6 @@ const labs = [
     height: 220px;
     object-fit: cover;
     border-radius: 1rem;
-  }
-
-  .labs .lab-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
   }
 
   .cta {
