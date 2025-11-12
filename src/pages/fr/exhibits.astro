@@ -3,35 +3,23 @@ import Layout from '../../layouts/Layout.astro';
 
 const expositions = [
   {
-    titre: 'Chansons de cèdre',
+    titre: 'Chants dans le cèdre',
     description:
-      'Une exposition qui met en lumière le travail des sculpteurs, des créateurs de masques et des instruments qui transforment le cèdre en porteur de savoirs.',
+      'Une exposition qui célèbre l’art des sculpteurs, créateurs de masques et luthiers qui font du cèdre un porteur de mémoire.',
     image: '/images/webp/forest-installation.webp',
   },
   {
     titre: 'Archives de la table du conseil',
     description:
-      'Max Gros-Louis rencontrait chefs, premiers ministres et dirigeants du monde pour faire avancer les droits autochtones. Les visiteurs entendent des extraits historiques : négociations de la Convention de la Baie-James et du Nord québécois (1973-1975), entrevues des années 1970-1990 et archives radiophoniques documentant ses plaidoyers.',
+      'Les visiteurs peuvent voir des photos tirées d’assemblées historiques avec Max Gros-Louis, notamment celles des négociations entourant la Convention de la Baie-James et du Nord québécois (1973–1975), ainsi que des archives et diffusions nationales documentant ses discours et ses actions de défense des droits autochtones.',
     image: '/images/webp/council-circle.webp',
   },
   {
-    titre: 'Témoins & Veilleurs',
+    titre: '100 % Nordique',
     description:
-      'Sculptures grandeur nature jumelées à des portraits contemporains explorant la transmission des responsabilités.',
-    image: '/images/webp/community-collection.webp',
+      'Le Grand Chef Max Gros-Louis était un fidèle partisan des Nordiques de Québec. Découvrez des bâtons, chandails et souvenirs autographiés des joueurs qu’il admirait le plus.',
+    image: '/images/webp/max-nordiques3.webp',
   },
-  {
-    titre: 'Mains du territoire',
-    description:
-      'Objets du quotidien, perles et plantes médicinales documentés dans les maisons familiales de Wendake.',
-    image: '/images/webp/visitor-elder.webp',
-  },
-];
-
-const labs = [
-  { titre: 'Studio de conservation', detail: 'Ateliers sur l’hydratation des textiles, la réparation du perlage et la préservation du cèdre.' },
-  { titre: 'Laboratoire des récits', detail: 'Cabine d’enregistrement pour raconter vos souvenirs ou traduire les archives.' },
-  { titre: 'Hub de souveraineté numérique', detail: 'Numérisation des wampums, cartes et films avec gouvernance autochtone des données.' },
 ];
 ---
 
@@ -39,14 +27,13 @@ const labs = [
   <section class="exhibit-hero glass-panel">
     <div>
       <p class="eyebrow">Cycle actuel</p>
-      <h1>Des expositions ancrées dans l’héritage, les voix et la continuité.</h1>
+      <h1>Des expositions enracinées dans l’héritage, les voix et la continuité.</h1>
       <p>
-        L’Espace Oné Onti Max Gros-Louis invite les visiteurs à explorer la mémoire vivante du Grand Chef et de la Nation wendate. Les expositions tissent
-        archives historiques, traditions orales et création contemporaine pour présenter une culture à la fois ancestrale et en évolution. Chaque parcours est co-construit avec les familles, les aînés et les partenaires communautaires afin d’assurer authenticité, respect et réciprocité.
+        L’Espace Oné Onti Max Gros-Louis invite les visiteurs à explorer la mémoire vivante du Grand Chef et de la Nation wendate. Les expositions relient archives, traditions orales et création contemporaine, présentant la culture wendate comme à la fois ancestrale et en évolution. Chaque parcours est cocréé avec les aînés et les partenaires communautaires pour assurer authenticité, respect et réconciliation.
       </p>
-      <a href="/fr/visit" class="btn primary">Joindre la liste d'attente</a>
+      <a href="/fr/visit" class="btn primary">Joindre la liste d’attente</a>
     </div>
-    <img src="/images/webp/mask-gallery.webp" alt="Masques exposés dans les réserves" loading="lazy" />
+    <img src="/images/webp/mask-gallery.webp" alt="Masques sculptés exposés dans la galerie" loading="lazy" />
   </section>
 
   <section class="exhibit-grid">
@@ -61,28 +48,15 @@ const labs = [
     ))}
   </section>
 
-  <section class="labs glass-panel">
-    <div class="section-heading">
-      <p class="eyebrow">Laboratoires immersifs</p>
-      <h2>Espaces participatifs pour apprendre et créer.</h2>
-    </div>
-    <div class="lab-grid">
-      {labs.map((lab) => (
-        <article>
-          <h3>{lab.titre}</h3>
-          <p>{lab.detail}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
   <section class="cta glass-panel">
     <div>
-      <p class="eyebrow">Expositions itinérantes</p>
-      <h2>Emmenez la collection dans votre communauté.</h2>
-      <p>Nous priorisons les centres autochtones, écoles nordiques et projets de revitalisation des langues.</p>
+      <p class="eyebrow">Inviter l’exposition</p>
+      <h2>Tournées et programme de prêts</h2>
+      <p>
+        L’Espace Max Oné Onti Gros-Louis collabore avec des partenaires comme le Musée de la civilisation et le Musée huron-wendat. Les institutions peuvent emprunter certaines œuvres; écrivez-nous pour organiser une exposition itinérante ou connaître notre programme de prêts.
+      </p>
     </div>
-    <a href="/fr/contact" class="btn ghost">Discuter d’une tournée</a>
+    <a href="/fr/contact" class="btn ghost">Commencer la conversation</a>
   </section>
 </Layout>
 
@@ -123,12 +97,6 @@ const labs = [
     height: 220px;
     object-fit: cover;
     border-radius: 1rem;
-  }
-
-  .lab-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
   }
 
   .cta {

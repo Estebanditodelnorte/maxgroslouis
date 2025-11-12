@@ -3,70 +3,43 @@ import Layout from '../layouts/Layout.astro';
 
 const highlights = [
   {
-    title: 'Living Nations Gallery',
+    title: 'Songs in Cedar',
     description:
-      'Experience rotating installations that pair historic artifacts with contemporary Indigenous artworks, curated to show the living heartbeat of the land.',
+      'An exhibition highlighting the artistry of carvers, mask-makers, and musical instruments that transform cedar into a carrier of knowledge.',
     image: '/images/webp/forest-installation.webp',
   },
   {
-    title: 'Stories Under the Pines',
+    title: 'Council Table Archives',
     description:
-      'Nightly multimedia performances blend spoken word, archival audio, and projection-mapped canopies for an immersive storytelling ritual.',
-    image: '/images/webp/mask-gallery.webp',
+      'Photographs and recordings from historic assemblies, including negotiations surrounding the James Bay and Northern Quebec Agreement (1973–1975) and national broadcasts of Max Gros-Louis’ advocacy.',
+    image: '/images/webp/council-circle.webp',
   },
   {
-    title: 'Hands-on Conservatory',
+    title: '100% Nordique',
     description:
-      'Small-group conservation studios where guests learn how we restore beadwork, garments, and instruments back to ceremonial brilliance.',
-    image: '/images/webp/community-collection.webp',
-  },
-];
-
-const programs = [
-  {
-    title: 'Elders-in-Residence',
-    detail: 'Daily conversation circles with Elders Max Gros-Louis mentored, offering guidance on stewardship and leadership.',
-  },
-  {
-    title: 'Forest School Atelier',
-    detail: 'Nature-forward workshops for youth exploring botanical pigments, drum making, and river mapping.',
-  },
-  {
-    title: 'Curatorial Fellows',
-    detail: 'Six-month residency supporting emerging curators researching intercultural diplomacy and art repatriation.',
+      'A tribute to Grand Chief Max Gros-Louis’ love for the Québec Nordiques. See signed sticks, jerseys, photographs, and autographs from the players he admired most.',
+    image: '/images/webp/max-nordiques3.webp',
   },
 ];
 
 const events = [
   {
-    date: 'Nov 22',
-    title: 'Midnight Grove Opening',
-    detail: 'A candlelit vernissage unveiling the winter exhibition with performances and chef-led tastings.',
+    date: 'Jan 26',
+    title: 'Heritage Documentation Workshop',
+    detail:
+      'Hands-on evening with La Boîte Rouge VIF: learn how we inventory, photograph, and describe artifacts using professional tools and cultural protocols.',
   },
   {
-    date: 'Dec 05',
-    title: 'Archive Listening Lab',
-    detail: 'Hear remastered speeches by Grand Chief Max Gros-Louis with commentary from the preservation team.',
+    date: 'Feb 12',
+    title: 'Pilot Exhibition Preview',
+    detail:
+      'Exclusive unveiling of the first exhibition phase featuring key pieces from the Max Gros-Louis collection, community testimonies, and new digital scenography.',
   },
   {
-    date: 'Jan 14',
-    title: 'Lantern Walk',
-    detail: 'Guided outdoor walk tracing ancestral trade routes that border the museum grounds.',
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      'Every hall whispers with language, drums, and laughter. It feels like the forest chose to speak inside these walls.',
-    name: 'Noémie Picard',
-    role: 'Cultural Anthropologist',
-  },
-  {
-    quote:
-      'The Max Gros-Louis Museum is where historic courage meets contemporary creativity. My students left transformed.',
-    name: 'Aaron Littlefeather',
-    role: 'Educator, Kitchi Academy',
+    date: 'Year-round',
+    title: 'Ongoing Activities',
+    detail:
+      'Volunteer documentation sessions, Elder consultations, oral history interviews, and outreach visits run throughout the year—follow our channels to participate.',
   },
 ];
 
@@ -90,20 +63,6 @@ const visitingHours = [
         <a class="btn primary" href="/visit">Plan Your Visit</a>
         <a class="btn ghost" href="/about">Discover the Legacy</a>
       </div>
-      <ul class="hero__stats">
-        <li>
-          <span class="stat">60+</span>
-          <span>years of advocacy highlighted</span>
-        </li>
-        <li>
-          <span class="stat">8</span>
-          <span>immersive galleries to explore</span>
-        </li>
-        <li>
-          <span class="stat">120</span>
-          <span>acres of protected forest campus</span>
-        </li>
-      </ul>
     </div>
     <div class="hero__image">
       <img src="/images/webp/hero-corridor.webp" alt="Archival portraits of Grand Chief Max Gros-Louis" loading="lazy" />
@@ -132,32 +91,12 @@ const visitingHours = [
         </ul>
       </div>
     </div>
-    <div class="mission__grid">
-      <article>
-        <h3>Lifeways Laboratory</h3>
-        <p>
-          Collaborative research hub documenting ancestral technologies, ceremonial protocols, and contemporary innovations.
-        </p>
-      </article>
-      <article>
-        <h3>Forest Stewardship</h3>
-        <p>
-          120-acre sanctuary for medicinal plants and migratory species, stewarded with traditional knowledge and climate science.
-        </p>
-      </article>
-      <article>
-        <h3>Community Circles</h3>
-        <p>
-          Year-round gatherings focused on youth mentorship, intergenerational healing, and policy advocacy.
-        </p>
-      </article>
-    </div>
   </section>
 
   <section class="highlights">
     <div class="section-heading">
       <p class="eyebrow">Featured Immersions</p>
-      <h2>Exhibitions shaped by forest light.</h2>
+      <h2>Exhibitions rooted in heritage, voices, and continuity.</h2>
     </div>
     <div class="highlight-grid">
       {highlights.map((highlight) => (
@@ -172,25 +111,10 @@ const visitingHours = [
     </div>
   </section>
 
-  <section class="programs glass-panel">
-    <div class="section-heading">
-      <p class="eyebrow">Programs & Residencies</p>
-      <h2>Built with Elders, artists, and researchers.</h2>
-    </div>
-    <div class="program-grid">
-      {programs.map((program) => (
-        <article class="program-card">
-          <h3>{program.title}</h3>
-          <p>{program.detail}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
   <section class="events">
     <div class="section-heading">
       <p class="eyebrow">Upcoming Events</p>
-      <h2>Gather in the dark glow of the forest.</h2>
+      <h2>Programming rooted in story, ceremony, and joy.</h2>
     </div>
     <div class="event-grid">
       {events.map((event) => (
@@ -224,24 +148,6 @@ const visitingHours = [
     </div>
   </section>
 
-  <section class="testimonials">
-    <div class="section-heading">
-      <p class="eyebrow">Voices</p>
-      <h2>Visitors describe the resonance.</h2>
-    </div>
-    <div class="testimonial-grid">
-      {testimonials.map((testimonial) => (
-        <blockquote class="glass-panel">
-          <p>“{testimonial.quote}”</p>
-          <footer>
-            <strong>{testimonial.name}</strong>
-            <span>{testimonial.role}</span>
-          </footer>
-        </blockquote>
-      ))}
-    </div>
-  </section>
-
   <section class="contact-hours glass-panel">
     <div class="contact-block">
       <p class="eyebrow">Contact Us</p>
@@ -249,7 +155,7 @@ const visitingHours = [
       <p>97 Boulevard Bastien, Wendake QC · G0A 4V0</p>
       <p>
         <a href="tel:+18197909855">819-790-9855</a><br />
-        <a href="mailto:info@maxgroslouis.com">info@maxgroslouis.com</a>
+        <a href="mailto:espacemaxoneontigroslouis@gmail.com">espacemaxoneontigroslouis@gmail.com</a>
       </p>
       <p>Complimentary shuttle departs downtown Wendake every 30 minutes.</p>
     </div>
@@ -296,7 +202,7 @@ const visitingHours = [
     </div>
     <div>
       <h4>Connect</h4>
-      <a href="mailto:info@maxgroslouis.com">info@maxgroslouis.com</a>
+      <a href="mailto:espacemaxoneontigroslouis@gmail.com">espacemaxoneontigroslouis@gmail.com</a>
       <a href="tel:+18197909855">819-790-9855</a>
       <span>97 Boulevard Bastien, Wendake QC</span>
       <a href="/privacy">Privacy Policy</a>
@@ -348,20 +254,6 @@ const visitingHours = [
     gap: 0.75rem;
   }
 
-  .hero__stats {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-  }
-
-  .hero__stats li {
-    border-left: 1px solid var(--global-border-color);
-    padding-left: 1rem;
-  }
-
   .stat {
     display: block;
     font-size: 2rem;
@@ -373,19 +265,6 @@ const visitingHours = [
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: clamp(1.5rem, 4vw, 3rem);
-  }
-
-  .mission__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .mission__grid article {
-    padding: 1rem 1.25rem;
-    border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid color-mix(in srgb, var(--global-border-color) 40%, transparent);
   }
 
   .current-project {
@@ -433,25 +312,6 @@ const visitingHours = [
     padding: 1.25rem;
   }
 
-  .programs {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .program-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-
-  .program-card {
-    padding: 1.25rem;
-    border-radius: 1rem;
-    background: rgba(7, 15, 10, 0.65);
-    border: 1px solid color-mix(in srgb, var(--global-border-alt-color) 50%, transparent);
-  }
-
   .events {
     display: flex;
     flex-direction: column;
@@ -482,30 +342,6 @@ const visitingHours = [
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: clamp(1.5rem, 4vw, 3rem);
     align-items: center;
-  }
-
-  .visit__image img {
-    width: 100%;
-    border-radius: 1.5rem;
-    object-fit: cover;
-    max-height: 420px;
-  }
-
-  .visit ul {
-    padding-left: 1.25rem;
-    color: color-mix(in srgb, var(--global-base-t-color) 80%, var(--global-base-b-alt-color));
-  }
-
-  .testimonials {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.25rem;
   }
 
   blockquote {

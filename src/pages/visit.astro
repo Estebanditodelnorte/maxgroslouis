@@ -7,6 +7,12 @@ const hours = [
   { label: 'Private research visits', time: 'By appointment only' },
 ];
 
+const tips = [
+  'Bring layers; the forest campus stays cooler than the city.',
+  'Photography is welcome in most spaces—ask before capturing ceremonies.',
+  'Complimentary shuttle departs downtown Wendake every 30 minutes.',
+  'Wheelchairs, mobility scooters, baby carriers, and sensory bags available upon request.',
+];
 ---
 
 <Layout title="Visit | Max Gros-Louis Museum">
@@ -41,20 +47,12 @@ const hours = [
   <section class="travel">
     <article class="glass-panel">
       <h3>Address</h3>
-      <p>
-        97 Boulevard Bastien<br />
-        Wendake QC<br />
-        G0A 4V0
-      </p>
-      <p>Parking on site is limited; we encourage shuttle or bike travel.</p>
+      <p>97 Boulevard Bastien, Wendake QC · G0A 4V0</p>
+      <p>Parking near site available; we encourage shuttle or bike travel.</p>
     </article>
     <article class="glass-panel">
       <h3>Transit</h3>
-      <p>
-        RTC Routes 74 and 283 stop at Boulevard Bastien / Rue Chef Émile-Picard, within a short walking distance of the museum site.
-        For schedules and real-time information, visit
-        <a href="https://www.rtcquebec.ca" target="_blank" rel="noreferrer">rtcquebec.ca</a>.
-      </p>
+      <p>RTC Routes 74 and 283 stop at Boulevard Bastien / Rue Chef Émile-Picard, within a short walking distance of the museum site.</p>
     </article>
     <article class="glass-panel">
       <h3>Guided Groups</h3>
@@ -68,11 +66,9 @@ const hours = [
       <h2>Make the most of your time onsite.</h2>
     </div>
     <ul>
-      <li>The Espace Musée One Onti Max Gros-Louis is currently closed to the public while collection inventory and digitization work take place.</li>
-      <li>
-        <a href="https://www.facebook.com/profile.php?id=61581850003312" target="_blank" rel="noreferrer">Follow</a>
-        our updates to know when exhibitions and guided visits begin.
-      </li>
+      {tips.map((tip) => (
+        <li>{tip}</li>
+      ))}
     </ul>
   </section>
 </Layout>

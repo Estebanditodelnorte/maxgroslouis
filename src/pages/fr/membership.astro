@@ -3,33 +3,31 @@ import Layout from '../../layouts/Layout.astro';
 
 const niveaux = [
   {
-    nom: 'Cercle de la mémoire',
-    prix: '60 $ / an',
+    nom: 'Paiement d’adhésion',
+    montant: '60 $ / an',
     avantages: [
-      'Accès à toutes les communications du musée et invitations aux événements préouverture',
-      'Infolettres aux membres avec faits saillants des collections et des projets',
-      'Mention dans le bulletin communautaire annuel',
+      'Des frais de 60 $ sont exigés annuellement pour renouveler l’adhésion. Veuillez effectuer votre paiement rapidement et conserver la preuve pour vos dossiers.',
     ],
+    ctaLabel: 'Paypal',
+    ctaHref: '/fr/contact',
   },
   {
-    nom: 'Gardiennes du patrimoine',
-    prix: '180 $ / an',
+    nom: 'Donner de votre temps',
+    montant: 'Gratuit',
     avantages: [
-      'Tous les avantages du Cercle de la mémoire',
-      'Invitation au rassemblement annuel des partenaires et à la soirée culturelle avec les aînés',
-      'Accès prioritaire aux ateliers éducatifs et activités communautaires',
-      'Nom inscrit sur le mur des alliés lors de l’ouverture',
+      'Nous accueillons les personnes qui souhaitent offrir leur temps ou expertise afin de soutenir la mission du musée. Contactez-nous pour connaître les besoins actuels en bénévolat.',
     ],
+    ctaLabel: 'Nous écrire',
+    ctaHref: '/fr/contact',
   },
   {
-    nom: 'Intendants de l’héritage',
-    prix: '500 $ / an',
+    nom: 'Faire un don',
+    montant: 'Montant au choix',
     avantages: [
-      'Tous les avantages des Gardiennes du patrimoine',
-      'Consultation privée en coulisses avec les équipes de conservation ou de curation',
-      'Possibilité de parrainer une initiative éducative ou un élément d’exposition',
-      'Reconnaissance mise en valeur dans les communications du musée',
+      'Un reçu fiscal peut être émis pour les montants de 20 $ et plus. Merci de conserver la preuve de paiement pour vos dossiers.',
     ],
+    ctaLabel: 'Faire un don',
+    ctaHref: '/fr/contact',
   },
 ];
 ---
@@ -37,28 +35,28 @@ const niveaux = [
 <Layout title="Adhésion | Espace Max Gros-Louis">
   <section class="membership-hero glass-panel">
     <div>
-      <p class="eyebrow">Soutenir</p>
-      <h1>Votre contribution maintient la culture wendate bien vivante.</h1>
+      <p class="eyebrow">Soutenir la vision</p>
+      <h1>Votre contribution garde la culture wendate bien vivante.</h1>
       <p>
-        Les adhésions et dons permettent de préserver, documenter et partager l’héritage du Grand Chef Max Gros-Louis. Chaque adhésion soutient
+        Les adhésions et les dons nous aident à préserver, documenter et partager l’héritage du Grand Chef Max Gros-Louis. Chaque adhésion soutient
         la conservation des artefacts, la numérisation, les programmes éducatifs et les activités intergénérationnelles qui renforcent la continuité culturelle.
       </p>
       <a href="/fr/contact" class="btn primary">Parler avec notre équipe</a>
     </div>
-    <img src="/images/webp/community-collection.webp" alt="Visiteurs explorant les collections" loading="lazy" />
+    <img src="/images/webp/community-collection.webp" alt="Visiteurs explorant des sculptures et des sculptures sur bois" loading="lazy" />
   </section>
 
   <section class="tier-grid">
     {niveaux.map((niveau) => (
       <article class="tier glass-panel">
         <h2>{niveau.nom}</h2>
-        <p class="amount">{niveau.prix}</p>
+        <p class="amount">{niveau.montant}</p>
         <ul>
           {niveau.avantages.map((avantage) => (
             <li>{avantage}</li>
           ))}
         </ul>
-        <a class="btn ghost" href="/fr/contact">Joindre ce niveau</a>
+        <a class="btn ghost" href={niveau.ctaHref ?? '/fr/contact'}>{niveau.ctaLabel ?? 'Contactez-nous'}</a>
       </article>
     ))}
   </section>
@@ -66,7 +64,7 @@ const niveaux = [
   <section class="impact glass-panel">
     <div>
       <p class="eyebrow">Impact</p>
-      <h2>Comment les contributions sont réparties.</h2>
+      <h2>Où voyagent vos contributions.</h2>
     </div>
     <div class="impact-grid">
       <article>
@@ -75,7 +73,7 @@ const niveaux = [
       </article>
       <article>
         <span class="stat">31 %</span>
-        <p>Recherche et développement d’expositions.</p>
+        <p>Recherche et développement des expositions.</p>
       </article>
       <article>
         <span class="stat">27 %</span>

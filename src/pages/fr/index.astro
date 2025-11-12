@@ -3,97 +3,66 @@ import Layout from '../../layouts/Layout.astro';
 
 const misesEnAvant = [
   {
-    titre: 'Galerie des Nations Vivantes',
+    titre: 'Chants dans le cèdre',
     description:
-      'Rencontrez les artefacts historiques jumelés à des œuvres contemporaines qui témoignent du battement de coeur de la forêt.',
+      'Une exposition qui célèbre l’art des sculpteurs, créateurs de masques et luthiers qui font du cèdre un porteur de mémoire.',
     image: '/images/webp/forest-installation.webp',
   },
   {
-    titre: 'Histoires sous les Pins',
+    titre: 'Archives de la table du conseil',
     description:
-      'Performances nocturnes qui marient conte, archives audio et projections sur la canopée pour une immersion sensorielle.',
-    image: '/images/webp/mask-gallery.webp',
+      'Les visiteurs peuvent voir des photos tirées d’assemblées historiques avec Max Gros-Louis, notamment celles des négociations entourant la Convention de la Baie-James et du Nord québécois (1973–1975), ainsi que des archives et diffusions nationales documentant ses discours et ses actions de défense des droits autochtones.',
+    image: '/images/webp/council-circle.webp',
   },
   {
-    titre: 'Atelier de conservation',
+    titre: '100 % Nordique',
     description:
-      'Studios participatifs où l’on apprend à restaurer perlage, vêtements et instruments avec guidance d’artisans.',
-    image: '/images/webp/community-collection.webp',
-  },
-];
-
-const programmes = [
-  {
-    titre: 'Aînés en résidence',
-    detail: 'Cercles quotidiens guidés par les aînés mentorés par Max Gros-Louis, centrés sur la gouvernance et le soin du territoire.',
-  },
-  {
-    titre: 'École de la Forêt',
-    detail: 'Ateliers jeunesse : pigments botaniques, fabrication de tambours et cartographie des rivières.',
-  },
-  {
-    titre: 'Boursiers curatoriaux',
-    detail: 'Résidence de six mois pour chercheurs travaillant sur la diplomatie interculturelle et la rapatriation.',
+      'Hommage à l’amour du Grand Chef Max Gros-Louis pour les Nordiques de Québec : bâtons signés, chandails, photos et autographes des joueurs qu’il admirait.',
+    image: '/images/webp/max-nordiques3.webp',
   },
 ];
 
 const evenements = [
-  { date: '22 nov', titre: 'Ouverture Clair de Lune', detail: 'Vernissage aux chandelles avec performances et dégustations.' },
   {
-    date: '5 déc',
-    titre: 'Laboratoire d’écoute',
-    detail: 'Diffusion d’archives audio de Max Gros-Louis commentées par l’équipe de préservation.',
-  },
-  { date: '14 jan', titre: 'Marche aux Lanternes', detail: 'Promenade guidée sur les anciens sentiers de commerce.' },
-];
-
-const temoignages = [
-  {
-    citation: 'Chaque salle murmure la langue, le tambour et le rire. On dirait que la forêt parle dans ces murs.',
-    nom: 'Noémie Picard',
-    role: 'Anthropologue culturelle',
+    date: '26 janv.',
+    titre: 'Atelier de documentation patrimoniale',
+    detail:
+      'Soirée pratique avec La Boîte Rouge VIF pour découvrir notre processus d’inventaire, de photographie et de description des artefacts selon les protocoles culturels.',
   },
   {
-    citation: 'Le musée Max Gros-Louis marie courage historique et création actuelle. Mes élèves sont repartis transformés.',
-    nom: 'Aaron Littlefeather',
-    role: 'Enseignant, Académie Kitchi',
+    date: '12 févr.',
+    titre: 'Présentation pilote de l’exposition',
+    detail:
+      'Aperçu exclusif de la première phase d’exposition : pièces phares de la collection Max Gros-Louis, témoignages communautaires et nouvelles installations numériques.',
+  },
+  {
+    date: 'Toute l’année',
+    titre: 'Activités en continu',
+    detail:
+      'Séances de documentation avec bénévoles, consultations du Cercle des aînés, entrevues d’histoire orale et visites de sensibilisation. Suivez nos canaux pour participer.',
   },
 ];
 
 const heures = [
   { label: 'Statut du musée', time: 'Fermé au public' },
-  { label: 'Réouverture', time: 'Date à confirmer' },
-  { label: 'Visites privées', time: 'Sur rendez-vous seulement' },
+  { label: 'Prochaine réouverture', time: 'À annoncer — abonnez-vous pour les nouvelles' },
+  { label: 'Visites de recherche privées', time: 'Sur rendez-vous seulement' },
 ];
 ---
 
-<Layout title="Espace Max Gros-Louis | Accueil">
+<Layout title="Espace Musée Oné Onti Max Gros-Louis | Accueil">
   <section class="hero">
     <div class="hero__content">
-      <p class="eyebrow">Espace Max Oné Onti Gros-Louis</p>
-      <h1>Honoring Memory, Culture, and Continuity.</h1>
+      <p class="eyebrow">Espace Musée Oné Onti Max Gros-Louis</p>
+      <h1>Honorer la mémoire, la culture et la continuité.</h1>
       <p class="lead">
-        Honorer la mémoire, la culture et la continuité. L’Espace Musée Oné Onti Max Gros-Louis, situé à Wendake, célèbre la vie et l’héritage du Grand Chef Max Gros-Louis (1931–2020) — leader visionnaire et défenseur des droits autochtones.
-        Le musée est dédié à la préservation, la documentation et le partage du patrimoine culturel et historique de la Nation huronne-wendat et d’autres Premières Nations.
+        Situé à Wendake, l’Espace Musée Oné Onti Max Gros-Louis célèbre la vie et l’héritage du Grand Chef Max Gros-Louis (1931–2020), leader visionnaire et défenseur des droits autochtones.
+        Le musée est consacré à la préservation, la documentation et le partage du patrimoine culturel et historique de la Nation huronne-wendat et des autres Premières Nations.
       </p>
       <div class="hero__actions">
-        <a class="btn primary" href="/fr/visit">Planifier une visite</a>
+        <a class="btn primary" href="/fr/visit">Planifier votre visite</a>
         <a class="btn ghost" href="/fr/about">Découvrir l’héritage</a>
       </div>
-      <ul class="hero__stats">
-        <li>
-          <span class="stat">60+</span>
-          <span>années de plaidoyer mises en lumière</span>
-        </li>
-        <li>
-          <span class="stat">8</span>
-          <span>galeries immersives à parcourir</span>
-        </li>
-        <li>
-          <span class="stat">120</span>
-          <span>acres de forêt protégée</span>
-        </li>
-      </ul>
     </div>
     <div class="hero__image">
       <img src="/images/webp/hero-corridor.webp" alt="Portraits d’archives du Grand Chef Max Gros-Louis" loading="lazy" />
@@ -103,32 +72,31 @@ const heures = [
   <section class="mission glass-panel">
     <div>
       <p class="eyebrow">Mission</p>
-      <h2>Une maison de récits enracinés dans le territoire.</h2>
+      <h2>Nous protégeons et faisons rayonner l’héritage culturel, historique et spirituel du Grand Chef Max Gros-Louis et de la Nation huronne-wendat.</h2>
       <p>
-        Max Gros-Louis a défendu la souveraineté, la langue et la protection écologique. Le musée poursuit cette vision grâce à des expositions,
-        résidences artistiques et recherches qui amplifient les voix des Premières Nations.
+        À travers les expositions, les programmes éducatifs et la recherche, le musée renforce le dialogue entre les peuples autochtones et non autochtones,
+        s’assurant que la mémoire et les valeurs de Max Gros-Louis guident les générations futures.
       </p>
-    </div>
-    <div class="mission__grid">
-      <article>
-        <h3>Laboratoire des modes de vie</h3>
-        <p>Recherche collaborative sur les technologies ancestrales et innovations contemporaines.</p>
-      </article>
-      <article>
-        <h3>Gardiens de la forêt</h3>
-        <p>Sanctuaire de 120 acres pour les plantes médicinales et espèces migratrices.</p>
-      </article>
-      <article>
-        <h3>Circles communautaires</h3>
-        <p>Rencontres intergénérationnelles axées sur le mentorat, la guérison et la diplomatie.</p>
-      </article>
+      <div class="current-project">
+        <h3>Projet en cours (2026–2029)</h3>
+        <p>
+          Le musée développe sa collection permanente et ses espaces d’exposition grâce à une initiative majeure de préservation patrimoniale et de numérisation soutenue par
+          Patrimoine canadien et le Conseil de la Nation huronne-wendat.
+        </p>
+        <ul>
+          <li>Inventaire et documentation numérique de plus de 3 000 artefacts et archives.</li>
+          <li>Création d’une base de données bilingue et d’une exposition virtuelle.</li>
+          <li>Développement de politiques de conservation, rapatriement et accessibilité.</li>
+          <li>Conception de la première exposition pilote, prévue pour 2028.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section class="highlights">
     <div class="section-heading">
       <p class="eyebrow">Expositions vedettes</p>
-      <h2>Des salles sculptées par la lumière de la forêt.</h2>
+      <h2>Des expositions enracinées dans l’héritage, les voix et la continuité.</h2>
     </div>
     <div class="highlight-grid">
       {misesEnAvant.map((item) => (
@@ -138,21 +106,6 @@ const heures = [
             <h3>{item.titre}</h3>
             <p>{item.description}</p>
           </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="programs glass-panel">
-    <div class="section-heading">
-      <p class="eyebrow">Programmes & résidences</p>
-      <h2>Cocréés avec les aînés, artistes et chercheurs.</h2>
-    </div>
-    <div class="program-grid">
-      {programmes.map((programme) => (
-        <article class="program-card">
-          <h3>{programme.titre}</h3>
-          <p>{programme.detail}</p>
         </article>
       ))}
     </div>
@@ -175,53 +128,16 @@ const heures = [
     </div>
   </section>
 
-  <section class="visit glass-panel">
-    <div class="visit__info">
-      <p class="eyebrow">Visite</p>
-      <h2>Préparez votre parcours entre musée et forêt.</h2>
-      <p>
-        Ouvert du mardi au dimanche de 10 h à 22 h les fins de semaine. Les visites du soir incluent des sentiers illuminés et contes vivants à chaque heure.
-      </p>
-      <ul>
-        <li>Navette gratuite depuis Wendake centre-ville toutes les 30 minutes.</li>
-        <li>Café Mushu : menu de saison et boissons aux plantes.</li>
-        <li>Espaces accessibles; visites privées sur demande.</li>
-      </ul>
-      <a class="btn primary" href="/fr/visit">Obtenir l’itinéraire</a>
-    </div>
-    <div class="visit__image">
-      <img src="/images/webp/elder-portrait.webp" alt="Aînée assise près des tambours et paniers" loading="lazy" />
-    </div>
-  </section>
-
-  <section class="testimonials">
-    <div class="section-heading">
-      <p class="eyebrow">Témoignages</p>
-      <h2>Ce que les visiteurs ressentent.</h2>
-    </div>
-    <div class="testimonial-grid">
-      {temoignages.map((temoignage) => (
-        <blockquote class="glass-panel">
-          <p>“{temoignage.citation}”</p>
-          <footer>
-            <strong>{temoignage.nom}</strong>
-            <span>{temoignage.role}</span>
-          </footer>
-        </blockquote>
-      ))}
-    </div>
-  </section>
-
   <section class="contact-hours glass-panel">
     <div class="contact-block">
-      <p class="eyebrow">Nous écrire</p>
-      <h2>Pour les visites, partenariats ou histoires à partager.</h2>
+      <p class="eyebrow">Nous joindre</p>
+      <h2>Pour les visites, partenariats ou récits à partager.</h2>
       <p>97 Boulevard Bastien, Wendake QC · G0A 4V0</p>
       <p>
-        <a href="tel:+18197909888">819-790-9888</a><br />
+        <a href="tel:+18197909855">819-790-9855</a><br />
         <a href="mailto:espacemaxoneontigroslouis@gmail.com">espacemaxoneontigroslouis@gmail.com</a>
       </p>
-      <p>Navette gratuite toutes les 30 minutes depuis le centre.</p>
+      <p>Navette gratuite au départ du centre de Wendake toutes les 30 minutes.</p>
     </div>
     <div class="hours-block">
       <p class="eyebrow">Statut</p>
@@ -239,8 +155,10 @@ const heures = [
   <section class="cta glass-panel">
     <div>
       <p class="eyebrow">Soutenir</p>
-      <h2>Joignez le cercle qui poursuit l’héritage.</h2>
-      <p>Votre contribution finance des commandes artistiques, la rematriation des terres et l’accès à contribution volontaire.</p>
+      <h2>Rejoignez le cercle qui fait vivre l’héritage de Max Gros-Louis.</h2>
+      <p>
+        Les membres aident à commander de nouvelles œuvres, à financer la rematriation des terres et à maintenir l’admission à contribution volontaire pour les familles.
+      </p>
     </div>
     <div class="cta__actions">
       <a class="btn primary" href="/fr/membership">Devenir membre</a>
@@ -265,7 +183,7 @@ const heures = [
     <div>
       <h4>Contact</h4>
       <a href="mailto:espacemaxoneontigroslouis@gmail.com">espacemaxoneontigroslouis@gmail.com</a>
-      <a href="tel:+18197909888">819-790-9888</a>
+      <a href="tel:+18197909855">819-790-9855</a>
       <span>97 Boulevard Bastien, Wendake QC</span>
       <a href="/fr/privacy">Politique de confidentialité</a>
       <a href="https://www.facebook.com/profile.php?id=61581850003312" target="_blank" rel="noreferrer">Facebook</a>
@@ -316,20 +234,6 @@ const heures = [
     gap: 0.75rem;
   }
 
-  .hero__stats {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-  }
-
-  .hero__stats li {
-    border-left: 1px solid var(--global-border-color);
-    padding-left: 1rem;
-  }
-
   .stat {
     display: block;
     font-size: 2rem;
@@ -343,17 +247,17 @@ const heures = [
     gap: clamp(1.5rem, 4vw, 3rem);
   }
 
-  .mission__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.25rem;
+  .current-project {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    background: rgba(7, 15, 10, 0.6);
+    border: 1px solid color-mix(in srgb, var(--global-border-alt-color) 50%, transparent);
   }
 
-  .mission__grid article {
-    padding: 1rem 1.25rem;
-    border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid color-mix(in srgb, var(--global-border-color) 40%, transparent);
+  .current-project ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.2rem;
   }
 
   .highlights {
@@ -388,25 +292,6 @@ const heures = [
     padding: 1.25rem;
   }
 
-  .programs {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .program-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-
-  .program-card {
-    padding: 1.25rem;
-    border-radius: 1rem;
-    background: rgba(7, 15, 10, 0.65);
-    border: 1px solid color-mix(in srgb, var(--global-border-alt-color) 50%, transparent);
-  }
-
   .events {
     display: flex;
     flex-direction: column;
@@ -430,37 +315,6 @@ const heures = [
     display: inline-flex;
     gap: 0.25rem;
     align-items: center;
-  }
-
-  .visit {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: clamp(1.5rem, 4vw, 3rem);
-    align-items: center;
-  }
-
-  .visit__image img {
-    width: 100%;
-    border-radius: 1.5rem;
-    object-fit: cover;
-    max-height: 420px;
-  }
-
-  .visit ul {
-    padding-left: 1.25rem;
-    color: color-mix(in srgb, var(--global-base-t-color) 80%, var(--global-base-b-alt-color));
-  }
-
-  .testimonials {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.25rem;
   }
 
   blockquote {

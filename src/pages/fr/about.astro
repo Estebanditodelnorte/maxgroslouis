@@ -3,52 +3,58 @@ import Layout from '../../layouts/Layout.astro';
 
 const valeurs = [
   {
-    titre: 'Réciprocité',
-    detail: 'Chaque exposition et programme est cocréé avec les familles et gardiens du savoir pour garder l’équilibre entre donner et recevoir.',
+    titre: 'Réconciliation',
+    detail:
+      'Le musée agit comme un pont entre les Nations, favorisant le dialogue, la reconnaissance et la compréhension mutuelle. Nos initiatives culturelles et éducatives cherchent à rétablir l’équilibre entre mémoire et avenir, entre traditions vivantes et innovations muséales.',
   },
   {
     titre: 'Continuité',
-    detail: 'Nous protégeons les langues, chants et archives orales tout en soutenant les nouvelles générations qui prennent le relais.',
+    detail:
+      'Nous préservons les langues, chants, objets et archives tout en développant des programmes qui permettent aux jeunes de devenir les gardiens de demain. Chaque action vise à relier les racines du passé aux voix du présent, dans une perspective de transmission durable.',
   },
   {
-    titre: 'Soin du territoire',
-    detail: 'La forêt campus et les collections sont traitées comme des proches vivants, guidées par les pratiques écologiques autochtones.',
+    titre: 'Transmission',
+    detail:
+      'L’Espace Max Oné Onti Gros-Louis a pour mission de constituer, administrer, mettre en valeur et assurer la pérennité d’un musée dédié à la culture et à la mémoire des Premières Nations, ouvert au public à Wendake. La collection, composée d’objets, d’archives et d’œuvres ayant appartenu au Grand Chef Max “Oné Onti” Gros-Louis, est traitée comme un patrimoine vivant : chaque objet porte un récit, chaque archive prolonge une voix.',
   },
 ];
 
 const jalons = [
   {
-    annee: '1963',
+    annee: '2003',
     titre: 'Premières assemblées publiques',
-    detail: 'Max Gros-Louis organise des rencontres diplomatiques qui inspirent les cercles de gouvernance actuels.',
+    detail:
+      'Le Grand Chef Max Gros-Louis fonde l’organisme sans but lucratif qui deviendra l’Espace Musée Oné Onti Max Gros-Louis, posant les bases d’un musée consacré au patrimoine wendat.',
   },
   {
-    annee: 'Années 1980',
-    titre: 'Archives communautaires',
-    detail: 'Les familles offrent sculptures, vêtements et enregistrements, fondant la collection permanente.',
+    annee: '2022',
+    titre: 'Évaluation et relance de la collection',
+    detail:
+      'Isa Gros-Louis, fille de Max Gros-Louis, amorce la documentation de la collection, rédige un plan d’affaires et noue des partenariats majeurs pour préparer la prochaine phase du musée.',
   },
   {
-    annee: '2024',
-    titre: 'Expansion du campus forestier',
-    detail: 'Ouverture de 120 acres protégés accessibles au public avec sentiers, cabanes artistiques et laboratoires.',
+    annee: '2025',
+    titre: 'Premières demandes de financement',
+    detail:
+      'Le musée dépose ses premières demandes officielles et coordonne les travaux avec les partenaires gouvernementaux et communautaires. Les préparatifs visent une ouverture projetée en 2027–2028.',
   },
 ];
 
 const conseil = [
   {
     nom: 'Isa Gros-Louis',
-    role: 'Présidente & directrice générale',
-    focus: 'Orientation stratégique, partenariats et leadership quotidien du musée.',
+    role: 'Présidente et directrice générale',
+    focus: 'Déploiement de la vision stratégique, partenariats et direction quotidienne du musée.',
   },
   {
     nom: 'Me Louis-Philippe Baillargeon',
     role: 'Vice-président',
-    focus: 'Gouvernance, soutien juridique et alignement des politiques avec les valeurs communautaires.',
+    focus: 'Gouvernance, appui juridique et alignement des politiques sur les valeurs communautaires.',
   },
   {
     nom: 'Justin Ndjock-Tadjore',
     role: 'Administrateur',
-    focus: 'Finances, opérations et suivi des performances des nouveaux projets.',
+    focus: 'Finances, opérations et suivi des performances des initiatives émergentes.',
   },
 ];
 ---
@@ -57,36 +63,32 @@ const conseil = [
   <section class="about-hero glass-panel">
     <div>
       <p class="eyebrow">Notre histoire</p>
-      <h1>Poursuivre la vision du Grand Chef Max Oné Onti Gros-Louis.</h1>
+      <h1>Mission et vision</h1>
       <p>
-        Le musée est né des salons, des salles communautaires et des clairières où Max invitait les jeunes et les leaders à rêver à un avenir souverain.
-        Aujourd’hui, nous poursuivons ce travail par des expositions immersives, de la recherche et des cérémonies qui honorent toutes les générations.
+        Fondé à Wendake, l’Espace Musée Oné Onti Max Gros-Louis est dédié à la préservation, la documentation et la mise en valeur de l’héritage culturel, politique et spirituel du Grand Chef Max « Oné Onti » Gros-Louis et de la Nation huronne-wendat.
+      </p>
+      <p>
+        Organisme à but non lucratif, le musée veille à ce que la mémoire et l’influence de ce leader visionnaire continuent d’inspirer les générations futures et de renforcer la compréhension interculturelle au Canada et ailleurs.
+      </p>
+      <p>
+        Le musée proposera des expositions permanentes et temporaires, des ateliers communautaires, un centre de documentation et de recherche ainsi que des activités éducatives qui mettent en lumière les savoirs autochtones.
       </p>
       <div class="hero-stats">
         <div>
-          <span class="stat">120</span>
-          <span>acres de campus protégé</span>
-        </div>
-        <div>
           <span class="stat">4 500+</span>
-          <span>objets & archives vivantes</span>
-        </div>
-        <div>
-          <span class="stat">38</span>
-          <span>résidences par année</span>
+          <span>objets et enregistrements d’archives</span>
         </div>
       </div>
     </div>
     <figure>
-      <img src="/images/webp/elder-portrait.webp" alt="Aînée dans les réserves du musée" loading="lazy" />
-      <figcaption>Thérèse Gros-Louis partage des récits familiaux avec l’équipe de conservation.</figcaption>
+      <img src="/images/webp/elder-portrait.webp" alt="Aînée parlant dans la réserve des collections" loading="lazy" />
     </figure>
   </section>
 
   <section class="values">
     <div class="section-heading">
-      <p class="eyebrow">Principes</p>
-      <h2>Ce qui garde le cercle en mouvement.</h2>
+      <p class="eyebrow">Principes directeurs</p>
+      <h2>Notre façon de garder le cercle en mouvement.</h2>
     </div>
     <div class="value-grid">
       {valeurs.map((valeur) => (
@@ -101,7 +103,7 @@ const conseil = [
   <section class="timeline glass-panel">
     <div class="section-heading">
       <p class="eyebrow">Jalons</p>
-      <h2>Moments qui façonnent le musée.</h2>
+      <h2>Moments qui ont façonné le musée.</h2>
     </div>
     <ol>
       {jalons.map((jalon) => (
@@ -119,7 +121,7 @@ const conseil = [
   <section class="advisors">
     <div class="section-heading">
       <p class="eyebrow">Gouvernance</p>
-      <h2>Le conseil d’administration (2025–2026) veille à l’intégrité culturelle et institutionnelle.</h2>
+      <h2>Le conseil d’administration (2025–2026) protège la gouvernance et l’intégrité culturelle.</h2>
     </div>
     <div class="advisor-grid">
       {conseil.map((membre) => (
@@ -131,8 +133,24 @@ const conseil = [
       ))}
     </div>
     <p class="advisory-note">
-      Un Cercle consultatif culturel et patrimonial, composé d’aînés, d’artistes et de détenteurs de savoirs, veille au respect des protocoles wendats pour toutes les activités du musée.
+      Un Cercle consultatif culturel et patrimonial — composé d’aînés, d’artistes et de détenteurs de savoir — s’assure que toutes les activités du musée respectent les protocoles wendats.
     </p>
+  </section>
+
+  <section class="gallery-panel glass-panel">
+    <div>
+      <p class="eyebrow">En coulisses</p>
+      <h2>Collecter, conserver et célébrer ensemble.</h2>
+      <p>
+        Nous documentons chaque artefact avec les familles qui en ont pris soin. Les enregistrements audio, les films et les histoires orales sont conservés
+        aux côtés des sculptures, textiles et documents de traités afin que les visiteurs comprennent tout le contexte.
+      </p>
+      <a href="/fr/exhibits" class="btn primary">Explorer les expositions</a>
+    </div>
+    <div class="gallery-images">
+      <img src="/images/webp/mask-gallery.webp" alt="Masques et régalia sur les étagères de la collection" loading="lazy" />
+      <img src="/images/webp/community-collection.webp" alt="Visiteurs observant des sculptures et figures sculptées" loading="lazy" />
+    </div>
   </section>
 </Layout>
 
@@ -158,12 +176,6 @@ const conseil = [
     object-fit: cover;
   }
 
-  figcaption {
-    margin-top: 0.75rem;
-    font-size: 0.9rem;
-    color: color-mix(in srgb, var(--global-base-t-color) 80%, var(--global-base-b-alt-color));
-  }
-
   .hero-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -178,7 +190,7 @@ const conseil = [
     display: block;
   }
 
-  .value-grid {
+  .values .value-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
@@ -222,5 +234,23 @@ const conseil = [
   .advisory-note {
     margin-top: 1rem;
     color: color-mix(in srgb, var(--global-base-t-color) 85%, var(--global-base-b-alt-color));
+  }
+
+  .gallery-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+  }
+
+  .gallery-images {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .gallery-images img {
+    width: 100%;
+    border-radius: 1.25rem;
+    object-fit: cover;
   }
 </style>
