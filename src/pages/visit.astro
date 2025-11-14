@@ -8,10 +8,7 @@ const hours = [
 ];
 
 const tips = [
-  'Bring layers; the forest campus stays cooler than the city.',
-  'Photography is welcome in most spaces—ask before capturing ceremonies.',
-  'Complimentary shuttle departs downtown Wendake every 30 minutes.',
-  'Wheelchairs, mobility scooters, baby carriers, and sensory bags available upon request.',
+  'Espace Musée Oné Onti Max Gros-Louis remains closed to the public while collection inventory and digitization work continue.',
 ];
 ---
 
@@ -47,12 +44,19 @@ const tips = [
   <section class="travel">
     <article class="glass-panel">
       <h3>Address</h3>
-      <p>97 Boulevard Bastien, Wendake QC · G0A 4V0</p>
+      <p>
+        97 Boulevard Bastien<br />
+        Wendake QC<br />
+        G0A 4V0
+      </p>
       <p>Parking near site available; we encourage shuttle or bike travel.</p>
     </article>
     <article class="glass-panel">
       <h3>Transit</h3>
-      <p>RTC Routes 74 and 283 stop at Boulevard Bastien / Rue Chef Émile-Picard, within a short walking distance of the museum site.</p>
+      <p>
+        RTC Routes 74 and 283 stop at Boulevard Bastien / Rue Chef Émile-Picard, just a few minutes’ walk from the museum site. For schedules and real-time updates,
+        visit <a href="https://www.rtcquebec.ca" target="_blank" rel="noreferrer">rtcquebec.ca</a>.
+      </p>
     </article>
     <article class="glass-panel">
       <h3>Guided Groups</h3>
@@ -69,6 +73,10 @@ const tips = [
       {tips.map((tip) => (
         <li>{tip}</li>
       ))}
+      <li>
+        <a href="https://www.facebook.com/profile.php?id=61581850003312" target="_blank" rel="noreferrer">Follow us on social channels</a>
+        for announcements about exhibition launches and guided visits.
+      </li>
     </ul>
   </section>
 </Layout>
