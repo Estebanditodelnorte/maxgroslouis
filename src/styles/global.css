@@ -20,12 +20,12 @@
     --global-base-t-alt-color: var(--global-palette7);
     --global-background-color: var(--global-palette1);
     --global-background-alt-color: var(--global-palette2);
-    --global-border-color: color-mix(in srgb, var(--global-palette6) 20%, transparent);
-    --global-border-alt-color: color-mix(in srgb, var(--global-palette7) 35%, transparent);
+    --global-border-color: color-mix(in srgb, var(--global-palette8) 85%, transparent);
+    --global-border-alt-color: color-mix(in srgb, var(--global-palette8) 60%, transparent);
     --global-link-color: var(--global-palette7);
     --global-link-hover-color: var(--global-palette8);
     --global-card-bg: color-mix(in srgb, var(--global-palette6) 12%, transparent);
-    --global-card-border: 1px solid color-mix(in srgb, var(--global-palette6) 28%, transparent);
+    --global-card-border: 1px solid color-mix(in srgb, var(--global-palette8) 75%, transparent);
 }
 
 *,

@@ -24,13 +24,13 @@ const misesEnAvant = [
 
 const evenements = [
   {
-    date: '26 janv.',
+    date: 'À déterminer',
     titre: 'Atelier de documentation patrimoniale',
     detail:
       'Soirée pratique avec La Boîte Rouge VIF pour découvrir notre processus d’inventaire, de photographie et de description des artefacts selon les protocoles culturels.',
   },
   {
-    date: '12 févr.',
+    date: 'À déterminer',
     titre: 'Présentation pilote de l’exposition',
     detail:
       'Aperçu exclusif de la première phase d’exposition : pièces phares de la collection Max Gros-Louis, témoignages communautaires et nouvelles installations numériques.',
@@ -69,30 +69,6 @@ const heures = [
     </div>
   </section>
 
-  <section class="mission glass-panel">
-    <div>
-      <p class="eyebrow">Mission</p>
-      <h2>Nous protégeons et faisons rayonner l’héritage culturel et historique du Grand Chef Max Gros-Louis et de la Nation huronne-wendat.</h2>
-      <p>
-        À travers les expositions, les programmes éducatifs et la recherche, le musée renforce le dialogue entre les peuples autochtones et non autochtones,
-        s’assurant que la mémoire et les valeurs de Max Gros-Louis guident les générations futures.
-      </p>
-      <div class="current-project">
-        <h3>Projet en cours (2026–2029)</h3>
-        <p>
-          Le musée développe sa collection permanente et ses espaces d’exposition grâce à une initiative majeure de préservation patrimoniale et de numérisation soutenue par
-          Patrimoine canadien et le Conseil de la Nation huronne-wendat.
-        </p>
-        <ul>
-          <li>Inventaire et documentation numérique de plus de 3 000 artefacts et archives.</li>
-          <li>Création d’une base de données bilingue et d’une exposition virtuelle.</li>
-          <li>Développement de politiques de conservation, rapatriement et accessibilité.</li>
-          <li>Conception de la première exposition pilote, prévue pour 2028.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <section class="highlights">
     <div class="section-heading">
       <p class="eyebrow">Expositions vedettes</p>
@@ -114,7 +90,6 @@ const heures = [
   <section class="events">
     <div class="section-heading">
       <p class="eyebrow">Événements à venir</p>
-      <h2>Réunions à la lueur des lanternes.</h2>
     </div>
     <div class="event-grid">
       {evenements.map((event) => (
@@ -172,6 +147,7 @@ const heures = [
       <a href="/fr">Accueil</a>
       <a href="/fr/about">À propos</a>
       <a href="/fr/exhibits">Expositions</a>
+      <a href="/fr/photos">Photos</a>
       <a href="/fr/events">Événements</a>
     </div>
     <div>
@@ -220,6 +196,7 @@ const heures = [
   h1 {
     font-size: clamp(2.5rem, 4vw, 3.8rem);
     margin: 0;
+    line-height: 1.15;
   }
 
   .lead {
@@ -401,10 +378,6 @@ const heures = [
   @media (max-width: 640px) {
     .hero__stats {
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-
-    .navigation {
-      position: static;
     }
   }
 </style>

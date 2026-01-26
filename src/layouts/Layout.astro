@@ -34,6 +34,10 @@ const langCode = isFrench ? 'fr' : 'en';
         <slot />
     </main>
     {pathname !== '/' && pathname !== '/fr' && <PageFooter isFrench={isFrench} />}
+    <p class="site-copyright">
+        Copyright © 2026 Espace Max Oné Onti Gros-Louis.
+        <span>Tous droits réservés.</span>
+    </p>
 </body>
 
 <style>
@@ -63,6 +67,19 @@ const langCode = isFrench ? 'fr' : 'en';
         letter-spacing: 0.1em;
         text-transform: uppercase;
         backdrop-filter: blur(6px);
+    }
+
+    .site-copyright {
+        margin: 0;
+        padding: 0 1rem 2rem;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--global-accent-color);
+    }
+
+    .site-copyright span {
+        display: block;
+        margin-top: 0.2rem;
     }
 
 </style>

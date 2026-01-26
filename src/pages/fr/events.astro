@@ -4,16 +4,16 @@ import Layout from '../../layouts/Layout.astro';
 const evenements = [
   {
     titre: 'Atelier de documentation patrimoniale – avec La Boîte Rouge VIF',
-    date: '26 janvier 2026',
-    heure: '18 h – 22 h',
+    date: '',
+    heure: 'À déterminer',
     description:
       'Atelier pratique présentant le processus de documentation du musée : inventaire, photographie et description des artefacts à l’aide d’outils professionnels et de protocoles culturels. Ouvert aux étudiants, jeunes chercheurs et résidents de Wendake.',
     image: '/images/webp/council-circle.webp',
   },
   {
     titre: 'Présentation pilote de l’exposition',
-    date: '12 février 2026',
-    heure: '14 h – 16 h 30',
+    date: '',
+    heure: 'À déterminer',
     description:
       'Aperçu exclusif de la première phase d’exposition du musée, avec des pièces clés de la collection Max Gros-Louis, des témoignages communautaires et de nouvelles installations numériques développées avec La Boîte Rouge VIF.',
     image: '/images/webp/community-speaker.webp',
@@ -36,7 +36,7 @@ const evenements = [
       <h1>Programmation enracinée dans le récit, la cérémonie et la joie.</h1>
       <p>Chaque événement est co-créé avec des aînés, des artistes et des gardiens du savoir pour offrir des moments de réflexion, de dialogue et d’apprentissage.</p>
     </div>
-    <img src="/images/webp/forest-installation.webp" alt="Installation au musée" loading="lazy" />
+    <img src="/images/webp/totems-huron-wendake.webp" alt="Chants dans le cèdre" loading="lazy" />
   </section>
 
   <section class="gathering-grid">
@@ -46,8 +46,7 @@ const evenements = [
         <div>
           <h2>{event.titre}</h2>
           <p class="datetime">
-            {event.date}
-            {event.heure ? ` · ${event.heure}` : ''}
+            {event.date && event.heure ? `${event.date} · ${event.heure}` : event.date || event.heure}
           </p>
           <p set:html={event.description}></p>
           <a class="btn ghost" href="/fr/contact">Joindre la liste d'attente</a>

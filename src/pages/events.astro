@@ -4,16 +4,16 @@ import Layout from '../layouts/Layout.astro';
 const gatherings = [
   {
     title: 'Heritage Documentation Workshop – with La Boîte Rouge VIF',
-    date: 'January 26, 2026',
-    time: '6:00 p.m. – 10:00 p.m.',
+    date: '',
+    time: 'To be determined',
     description:
       'Hands-on workshop introducing participants to the museum’s documentation process: inventorying, photographing, and describing artifacts from the collection using professional tools and cultural protocols. Open to students, young researchers, and Wendake residents.',
     image: '/images/webp/council-circle.webp',
   },
   {
     title: 'Pilot Exhibition Preview',
-    date: 'February 12, 2026',
-    time: '2:00 p.m. – 4:30 p.m.',
+    date: '',
+    time: 'To be determined',
     description:
       'Exclusive preview of the museum’s first exhibition phase, featuring key objects from the Max Gros-Louis collection, community testimonies, and new digital installations developed with La Boîte Rouge VIF.',
     image: '/images/webp/community-speaker.webp',
@@ -39,7 +39,7 @@ const gatherings = [
         Events are co-created with Elders, artists, and knowledge keepers, offering moments of reflection, dialogue, and learning.
       </p>
     </div>
-    <img src="/images/webp/forest-installation.webp" alt="Gallery installation with carved figures and painted wings" loading="lazy" />
+    <img src="/images/webp/totems-huron-wendake.webp" alt="Songs in Cedar" loading="lazy" />
   </section>
 
   <section class="gathering-grid">
@@ -49,8 +49,7 @@ const gatherings = [
         <div>
           <h2>{event.title}</h2>
           <p class="datetime">
-            {event.date}
-            {event.time ? ` · ${event.time}` : ''}
+            {event.date && event.time ? `${event.date} · ${event.time}` : event.date || event.time}
           </p>
           <p set:html={event.description}></p>
           <a class="btn ghost" href="/contact">Join the waitlist</a>
