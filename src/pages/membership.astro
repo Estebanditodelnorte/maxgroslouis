@@ -8,7 +8,7 @@ const tiers = [
     benefits: [
       'Members have access to unlimited museum visits for themselves. An annual fee of $60 is required to renew the membership. Please make your payment promptly and keep the proof for your records.',
     ],
-    ctaLabel: 'Paypal',
+    ctaLabel: 'Stripe',
     ctaHref: '/contact',
   },
   {
@@ -27,7 +27,7 @@ const tiers = [
       'A tax receipt can be issued for amounts above $20. Please keep proof of payment for your records.',
     ],
     ctaLabel: 'Donate Now!',
-    ctaHref: '/contact',
+    ctaHref: 'https://buy.stripe.com/9B63cu1LYcSR2mk0zdawo00',
   },
 ];
 ---
@@ -56,7 +56,7 @@ const tiers = [
             <li>{benefit}</li>
           ))}
         </ul>
-        <a class="btn ghost" href={tier.ctaHref ?? '/contact'}>{tier.ctaLabel ?? 'Paypal'}</a>
+        <a class="btn ghost" href={tier.ctaHref ?? '/contact'}>{tier.ctaLabel ?? 'Stripe'}</a>
       </article>
     ))}
   </section>

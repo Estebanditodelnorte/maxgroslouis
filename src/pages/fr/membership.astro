@@ -8,7 +8,7 @@ const niveaux = [
     avantages: [
       'Les membres ont accès à un nombre illimité de visites au musée pour eux-mêmes. Des frais annuels de 60 $ sont exigés pour renouveler l’adhésion. Veuillez effectuer votre paiement rapidement et conserver la preuve pour vos dossiers.',
     ],
-    ctaLabel: 'Paypal',
+    ctaLabel: 'Stripe',
     ctaHref: '/fr/contact',
   },
   {
@@ -27,7 +27,7 @@ const niveaux = [
       'Un reçu fiscal peut être émis pour les montants de 20 $ et plus. Merci de conserver la preuve de paiement pour vos dossiers.',
     ],
     ctaLabel: 'Faire un don',
-    ctaHref: '/fr/contact',
+    ctaHref: 'https://buy.stripe.com/9B63cu1LYcSR2mk0zdawo00',
   },
 ];
 ---
@@ -56,7 +56,7 @@ const niveaux = [
             <li>{avantage}</li>
           ))}
         </ul>
-        <a class="btn ghost" href={niveau.ctaHref ?? '/fr/contact'}>{niveau.ctaLabel ?? 'Contactez-nous'}</a>
+        <a class="btn ghost" href={niveau.ctaHref ?? '/fr/contact'}>{niveau.ctaLabel ?? 'Stripe'}</a>
       </article>
     ))}
   </section>
