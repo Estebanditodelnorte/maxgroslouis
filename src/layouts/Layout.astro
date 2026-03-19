@@ -3,6 +3,7 @@ import Navigation from '../components/Navigation.astro';
 import PageFooter from '../components/PageFooter.astro';
 const { title, description, image = '/images/webp/max.webp' } = Astro.props;
 const pathname = Astro.url.pathname;
+const normalizedPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
 const isFrench = pathname.startsWith('/fr');
 const site = Astro.site ?? new URL('https://maxgroslouis.com');
 const siteName = 'Espace Musee One Onti Max Gros-Louis';
@@ -25,26 +26,47 @@ const organizationId = `${new URL('/', site).toString()}#organization`;
 const websiteId = `${new URL('/', site).toString()}#website`;
 const webpageId = `${canonicalUrl}#webpage`;
 const defaultDescriptions = {
-  '/': 'Discover the Espace Musee One Onti Max Gros-Louis in Wendake, dedicated to preserving and sharing the cultural legacy of Grand Chief Max Gros-Louis and the Huron-Wendat Nation.',
-  '/about': 'Learn about the mission, milestones, governance, and cultural stewardship behind the Espace Musee One Onti Max Gros-Louis in Wendake.',
-  '/contact': 'Contact the Espace Musee One Onti Max Gros-Louis for visits, partnerships, research inquiries, and community programming in Wendake.',
-  '/events': 'Explore upcoming events, workshops, consultations, and community programming hosted by the Espace Musee One Onti Max Gros-Louis.',
-  '/exhibits': 'Browse exhibitions rooted in heritage, archives, oral histories, and cultural continuity at the Espace Musee One Onti Max Gros-Louis.',
-  '/membership': 'Support the Espace Musee One Onti Max Gros-Louis through membership and help sustain preservation, exhibitions, and community access.',
-  '/photos': 'View photo highlights from the collection, exhibitions, and community moments connected to the Espace Musee One Onti Max Gros-Louis.',
-  '/privacy': 'Read the privacy policy for the Espace Musee One Onti Max Gros-Louis website, including Quebec Law 25 compliance details.',
-  '/visit': 'Plan your visit to the Espace Musee One Onti Max Gros-Louis in Wendake with location, access, and current museum status information.',
-  '/fr': 'Decouvrez l Espace Musee One Onti Max Gros-Louis a Wendake, un lieu dedie a la transmission de l heritage culturel du Grand Chef Max Gros-Louis et de la Nation huronne-wendat.',
-  '/fr/about': 'Decouvrez la mission, les jalons, la gouvernance et l approche de transmission culturelle de l Espace Musee One Onti Max Gros-Louis a Wendake.',
-  '/fr/contact': 'Communiquez avec l Espace Musee One Onti Max Gros-Louis pour les visites, partenariats, demandes de recherche et activites communautaires.',
-  '/fr/events': 'Consultez les evenements, ateliers, consultations et activites communautaires proposes par l Espace Musee One Onti Max Gros-Louis.',
-  '/fr/exhibits': 'Explorez des expositions ancrees dans le patrimoine, les archives, les recits oraux et la continuite culturelle a l Espace Musee One Onti Max Gros-Louis.',
-  '/fr/membership': 'Soutenez l Espace Musee One Onti Max Gros-Louis grace a l adhesion et aidez a maintenir la preservation, les expositions et l accessibilite.',
-  '/fr/photos': 'Parcourez une selection de photos du musee, de la collection et des temps forts communautaires lies a l Espace Musee One Onti Max Gros-Louis.',
-  '/fr/privacy': 'Consultez la politique de confidentialite du site de l Espace Musee One Onti Max Gros-Louis et les renseignements lies a la Loi 25.',
-  '/fr/visit': 'Preparez votre visite a l Espace Musee One Onti Max Gros-Louis a Wendake avec les informations pratiques, l acces et le statut du musee.',
+  '/': 'Museum in Wendake honoring Grand Chief Max Gros-Louis, Huron-Wendat heritage, exhibits, archives, and community memory.',
+  '/about': 'Learn the museum mission, governance, milestones, and Huron-Wendat cultural stewardship in Wendake.',
+  '/contact': 'Contact the Wendake museum for visits, partnerships, programming, research, and community inquiries.',
+  '/events': 'See workshops, consultations, outreach, and museum events linked to Max Gros-Louis and Wendake.',
+  '/exhibits': 'Explore exhibits, archives, oral histories, and First Nations heritage connected to Max Gros-Louis.',
+  '/membership': 'Support the museum through membership, donations, preservation, exhibitions, and cultural programs.',
+  '/photos': 'Browse museum photos, collection highlights, exhibits, and community moments from Wendake.',
+  '/privacy': 'Read the website privacy policy, data practices, and Quebec Law 25 compliance details.',
+  '/visit': 'Plan a visit to the museum in Wendake with address, access, hours, and visitor status details.',
+  '/fr': 'Musee a Wendake dedie au Grand Chef Max Gros-Louis, au patrimoine huron-wendat, aux expositions et aux archives.',
+  '/fr/about': 'Decouvrez la mission, la gouvernance, les jalons et la transmission culturelle du musee a Wendake.',
+  '/fr/contact': 'Communiquez avec le musee de Wendake pour les visites, partenariats et demandes communautaires.',
+  '/fr/events': 'Consultez les ateliers, consultations, activites et evenements du musee lies a Max Gros-Louis.',
+  '/fr/exhibits': 'Explorez les expositions, archives, recits oraux et patrimoines autochtones lies a Max Gros-Louis.',
+  '/fr/membership': 'Soutenez le musee par l adhesion, les dons, les expositions et la preservation culturelle.',
+  '/fr/photos': 'Parcourez les photos du musee, de la collection, des expositions et de la communaute.',
+  '/fr/privacy': 'Consultez la politique de confidentialite, les pratiques de donnees et la conformite a la Loi 25.',
+  '/fr/visit': 'Preparez votre visite du musee a Wendake avec l adresse, l acces et le statut actuel.',
 };
-const pageDescription = description ?? defaultDescriptions[pathname] ?? defaultDescriptions[isFrench ? '/fr' : '/'];
+const defaultKeywords = {
+  '/': 'Max Gros-Louis, Wendake museum, Huron-Wendat Nation, Indigenous museum Quebec, First Nations heritage, archives, exhibits',
+  '/about': 'Max Gros-Louis biography, museum mission, governance, Wendake, Huron-Wendat heritage, cultural stewardship',
+  '/contact': 'museum contact Wendake, Max Gros-Louis museum phone, email, partnerships, research inquiries',
+  '/events': 'museum events Wendake, heritage workshop, oral history, community consultation, Max Gros-Louis events',
+  '/exhibits': 'museum exhibits Wendake, Max Gros-Louis collection, archives, oral history, First Nations heritage',
+  '/membership': 'museum membership, donate to museum, Wendake heritage support, cultural preservation',
+  '/photos': 'museum photos, Max Gros-Louis photos, Wendake collection, exhibit gallery',
+  '/privacy': 'privacy policy, Law 25, museum website privacy, data protection',
+  '/visit': 'visit museum Wendake, museum address, visitor information, guided groups, Quebec museum',
+  '/fr': 'musee Wendake, Max Gros-Louis, nation huronne-wendat, patrimoine autochtone, expositions, archives',
+  '/fr/about': 'mission du musee, gouvernance, jalons, patrimoine huron-wendat, Wendake',
+  '/fr/contact': 'contact musee Wendake, telephone, courriel, partenariats, demandes de recherche',
+  '/fr/events': 'evenements musee, ateliers patrimoniaux, consultations, histoire orale, Wendake',
+  '/fr/exhibits': 'expositions musee, collection Max Gros-Louis, archives, patrimoine autochtone',
+  '/fr/membership': 'adhesion musee, dons, preservation culturelle, soutien au patrimoine',
+  '/fr/photos': 'photos musee, galerie, collection, expositions, communaute Wendake',
+  '/fr/privacy': 'politique de confidentialite, Loi 25, protection des donnees',
+  '/fr/visit': 'visiter musee Wendake, adresse, acces, informations visiteurs, groupes guides',
+};
+const pageDescription = description ?? defaultDescriptions[normalizedPath] ?? defaultDescriptions[isFrench ? '/fr' : '/'];
+const pageKeywords = defaultKeywords[normalizedPath] ?? defaultKeywords[isFrench ? '/fr' : '/'];
 const breadcrumbLabels = {
   '': isFrench ? 'Accueil' : 'Home',
   about: isFrench ? 'A propos' : 'About',
@@ -163,6 +185,7 @@ const structuredData = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={pageKeywords} />
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
