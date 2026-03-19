@@ -1,9 +1,11 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import PageFooter from '../components/PageFooter.astro';
-const { title } = Astro.props;
+const { title, description, image = '/images/webp/max.webp' } = Astro.props;
 const pathname = Astro.url.pathname;
 const isFrench = pathname.startsWith('/fr');
+const site = Astro.site ?? new URL('https://maxgroslouis.com');
+const siteName = 'Espace Musee One Onti Max Gros-Louis';
 const altPath = (() => {
   if (isFrench) {
     const stripped = pathname.replace(/^\/fr/, '') || '/';
@@ -13,15 +15,176 @@ const altPath = (() => {
 })();
 const langLabel = isFrench ? 'English' : 'Français';
 const langCode = isFrench ? 'fr' : 'en';
+const canonicalUrl = new URL(pathname, site).toString();
+const alternateUrl = new URL(altPath, site).toString();
+const imageUrl = new URL(image, site).toString();
+const locale = isFrench ? 'fr_CA' : 'en_CA';
+const alternateLocale = isFrench ? 'en_CA' : 'fr_CA';
+const organizationName = 'Espace Musee One Onti Max Gros-Louis';
+const organizationId = `${new URL('/', site).toString()}#organization`;
+const websiteId = `${new URL('/', site).toString()}#website`;
+const webpageId = `${canonicalUrl}#webpage`;
+const defaultDescriptions = {
+  '/': 'Discover the Espace Musee One Onti Max Gros-Louis in Wendake, dedicated to preserving and sharing the cultural legacy of Grand Chief Max Gros-Louis and the Huron-Wendat Nation.',
+  '/about': 'Learn about the mission, milestones, governance, and cultural stewardship behind the Espace Musee One Onti Max Gros-Louis in Wendake.',
+  '/contact': 'Contact the Espace Musee One Onti Max Gros-Louis for visits, partnerships, research inquiries, and community programming in Wendake.',
+  '/events': 'Explore upcoming events, workshops, consultations, and community programming hosted by the Espace Musee One Onti Max Gros-Louis.',
+  '/exhibits': 'Browse exhibitions rooted in heritage, archives, oral histories, and cultural continuity at the Espace Musee One Onti Max Gros-Louis.',
+  '/membership': 'Support the Espace Musee One Onti Max Gros-Louis through membership and help sustain preservation, exhibitions, and community access.',
+  '/photos': 'View photo highlights from the collection, exhibitions, and community moments connected to the Espace Musee One Onti Max Gros-Louis.',
+  '/privacy': 'Read the privacy policy for the Espace Musee One Onti Max Gros-Louis website, including Quebec Law 25 compliance details.',
+  '/visit': 'Plan your visit to the Espace Musee One Onti Max Gros-Louis in Wendake with location, access, and current museum status information.',
+  '/fr': 'Decouvrez l Espace Musee One Onti Max Gros-Louis a Wendake, un lieu dedie a la transmission de l heritage culturel du Grand Chef Max Gros-Louis et de la Nation huronne-wendat.',
+  '/fr/about': 'Decouvrez la mission, les jalons, la gouvernance et l approche de transmission culturelle de l Espace Musee One Onti Max Gros-Louis a Wendake.',
+  '/fr/contact': 'Communiquez avec l Espace Musee One Onti Max Gros-Louis pour les visites, partenariats, demandes de recherche et activites communautaires.',
+  '/fr/events': 'Consultez les evenements, ateliers, consultations et activites communautaires proposes par l Espace Musee One Onti Max Gros-Louis.',
+  '/fr/exhibits': 'Explorez des expositions ancrees dans le patrimoine, les archives, les recits oraux et la continuite culturelle a l Espace Musee One Onti Max Gros-Louis.',
+  '/fr/membership': 'Soutenez l Espace Musee One Onti Max Gros-Louis grace a l adhesion et aidez a maintenir la preservation, les expositions et l accessibilite.',
+  '/fr/photos': 'Parcourez une selection de photos du musee, de la collection et des temps forts communautaires lies a l Espace Musee One Onti Max Gros-Louis.',
+  '/fr/privacy': 'Consultez la politique de confidentialite du site de l Espace Musee One Onti Max Gros-Louis et les renseignements lies a la Loi 25.',
+  '/fr/visit': 'Preparez votre visite a l Espace Musee One Onti Max Gros-Louis a Wendake avec les informations pratiques, l acces et le statut du musee.',
+};
+const pageDescription = description ?? defaultDescriptions[pathname] ?? defaultDescriptions[isFrench ? '/fr' : '/'];
+const breadcrumbLabels = {
+  '': isFrench ? 'Accueil' : 'Home',
+  about: isFrench ? 'A propos' : 'About',
+  contact: 'Contact',
+  events: isFrench ? 'Evenements' : 'Events',
+  exhibits: isFrench ? 'Expositions' : 'Exhibits',
+  membership: isFrench ? 'Adhesion' : 'Membership',
+  photos: 'Photos',
+  privacy: isFrench ? 'Confidentialite' : 'Privacy',
+  visit: isFrench ? 'Visiter' : 'Visit',
+  fr: 'Accueil',
+};
+const baseHomeUrl = new URL(isFrench ? '/fr/' : '/', site).toString();
+const pathSegments = pathname.split('/').filter(Boolean);
+const breadcrumbSegments = isFrench ? pathSegments.slice(1) : pathSegments;
+const breadcrumbItems = [
+  {
+    '@type': 'ListItem',
+    position: 1,
+    name: isFrench ? 'Accueil' : 'Home',
+    item: baseHomeUrl,
+  },
+  ...breadcrumbSegments.map((segment, index) => {
+    const relativePath = `${isFrench ? '/fr' : ''}/${breadcrumbSegments.slice(0, index + 1).join('/')}`;
+    return {
+      '@type': 'ListItem',
+      position: index + 2,
+      name: breadcrumbLabels[segment] ?? segment,
+      item: new URL(relativePath, site).toString(),
+    };
+  }),
+];
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: organizationName,
+    url: new URL('/', site).toString(),
+    logo: new URL('/images/webp/emgl-logo.webp', site).toString(),
+    image: imageUrl,
+    email: 'espacemaxoneontigroslouis@gmail.com',
+    telephone: '+1-819-790-9888',
+    sameAs: ['https://www.facebook.com/profile.php?id=61581850003312'],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '97 Boulevard Bastien',
+      addressLocality: 'Wendake',
+      addressRegion: 'QC',
+      postalCode: 'G0A 4V0',
+      addressCountry: 'CA',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Museum',
+    '@id': `${new URL('/', site).toString()}#museum`,
+    name: organizationName,
+    url: new URL('/', site).toString(),
+    description: defaultDescriptions['/'],
+    image: imageUrl,
+    telephone: '+1-819-790-9888',
+    email: 'espacemaxoneontigroslouis@gmail.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '97 Boulevard Bastien',
+      addressLocality: 'Wendake',
+      addressRegion: 'QC',
+      postalCode: 'G0A 4V0',
+      addressCountry: 'CA',
+    },
+    areaServed: 'Canada',
+    inLanguage: ['en-CA', 'fr-CA'],
+    sameAs: ['https://www.facebook.com/profile.php?id=61581850003312'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': websiteId,
+    url: new URL('/', site).toString(),
+    name: organizationName,
+    inLanguage: ['en-CA', 'fr-CA'],
+    publisher: {
+      '@id': organizationId,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': webpageId,
+    url: canonicalUrl,
+    name: title,
+    description: pageDescription,
+    isPartOf: {
+      '@id': websiteId,
+    },
+    about: {
+      '@id': `${new URL('/', site).toString()}#museum`,
+    },
+    inLanguage: langCode,
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: imageUrl,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbItems,
+  },
+];
 ---
 
 <html lang={langCode}>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={langCode} href={canonicalUrl} />
+    <link rel="alternate" hreflang={isFrench ? 'en' : 'fr'} href={alternateUrl} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', site).toString()} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={locale} />
+    <meta property="og:locale:alternate" content={alternateLocale} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={title} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={imageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <title>{title}</title>
     <style is:global>
         @import '../styles/global.css';

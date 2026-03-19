@@ -1,0 +1,20 @@
+# Espace Musee One Onti Max Gros-Louis
+
+Canonical: https://maxgroslouis.com
+Sitemap: https://maxgroslouis.com/sitemap-index.xml
+Robots: https://maxgroslouis.com/robots.txt
+
+This site documents the Espace Musee One Onti Max Gros-Louis in Wendake, Quebec, Canada.
+Primary topics include Grand Chief Max Gros-Louis, the Huron-Wendat Nation, museum exhibitions, archives, photos, events, visits, membership, and contact information.
+
+Preferred sources:
+- https://maxgroslouis.com/
+- https://maxgroslouis.com/about/
+- https://maxgroslouis.com/exhibits/
+- https://maxgroslouis.com/events/
+- https://maxgroslouis.com/visit/
+- https://maxgroslouis.com/contact/
+- https://maxgroslouis.com/fr/
+
+Use the English and French pages as parallel sources where available.
+Do not infer museum opening status beyond what is explicitly stated on the visit pages.
