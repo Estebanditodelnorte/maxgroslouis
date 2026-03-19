@@ -1,7 +1,7 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import PageFooter from '../components/PageFooter.astro';
-const { title, description, image = '/images/webp/max.webp' } = Astro.props;
+const { title, description, image } = Astro.props;
 const pathname = Astro.url.pathname;
 const normalizedPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
 const isFrench = pathname.startsWith('/fr');
@@ -18,7 +18,6 @@ const langLabel = isFrench ? 'English' : 'Français';
 const langCode = isFrench ? 'fr' : 'en';
 const canonicalUrl = new URL(pathname, site).toString();
 const alternateUrl = new URL(altPath, site).toString();
-const imageUrl = new URL(image, site).toString();
 const locale = isFrench ? 'fr_CA' : 'en_CA';
 const alternateLocale = isFrench ? 'en_CA' : 'fr_CA';
 const organizationName = 'Espace Musee One Onti Max Gros-Louis';
@@ -45,6 +44,26 @@ const defaultDescriptions = {
   '/fr/privacy': 'Consultez la politique de confidentialite, les pratiques de donnees et la conformite a la Loi 25.',
   '/fr/visit': 'Preparez votre visite du musee a Wendake avec l adresse, l acces et le statut actuel.',
 };
+const defaultImages = {
+  '/': '/images/webp/max.webp',
+  '/about': '/images/webp/chief-chirac-pelletier.webp',
+  '/contact': '/images/webp/community-speaker.webp',
+  '/events': '/images/webp/council-circle.webp',
+  '/exhibits': '/images/webp/mask-gallery.webp',
+  '/membership': '/images/webp/community-collection.webp',
+  '/photos': '/images/webp/totems-huron-wendake.webp',
+  '/privacy': '/images/webp/emgl-logo.webp',
+  '/visit': '/images/webp/visitor-elder.webp',
+  '/fr': '/images/webp/max.webp',
+  '/fr/about': '/images/webp/chief-chirac-pelletier.webp',
+  '/fr/contact': '/images/webp/community-speaker.webp',
+  '/fr/events': '/images/webp/council-circle.webp',
+  '/fr/exhibits': '/images/webp/mask-gallery.webp',
+  '/fr/membership': '/images/webp/community-collection.webp',
+  '/fr/photos': '/images/webp/totems-huron-wendake.webp',
+  '/fr/privacy': '/images/webp/emgl-logo.webp',
+  '/fr/visit': '/images/webp/visitor-elder.webp',
+};
 const defaultKeywords = {
   '/': 'Max Gros-Louis, Wendake museum, Huron-Wendat Nation, Indigenous museum Quebec, First Nations heritage, archives, exhibits',
   '/about': 'Max Gros-Louis biography, museum mission, governance, Wendake, Huron-Wendat heritage, cultural stewardship',
@@ -65,8 +84,31 @@ const defaultKeywords = {
   '/fr/privacy': 'politique de confidentialite, Loi 25, protection des donnees',
   '/fr/visit': 'visiter musee Wendake, adresse, acces, informations visiteurs, groupes guides',
 };
+const pageImage = image ?? defaultImages[normalizedPath] ?? defaultImages[isFrench ? '/fr' : '/'];
+const imageUrl = new URL(pageImage, site).toString();
 const pageDescription = description ?? defaultDescriptions[normalizedPath] ?? defaultDescriptions[isFrench ? '/fr' : '/'];
 const pageKeywords = defaultKeywords[normalizedPath] ?? defaultKeywords[isFrench ? '/fr' : '/'];
+const pageTypes = {
+  '/': 'AboutPage',
+  '/about': 'AboutPage',
+  '/contact': 'ContactPage',
+  '/events': 'CollectionPage',
+  '/exhibits': 'CollectionPage',
+  '/membership': 'AboutPage',
+  '/photos': 'CollectionPage',
+  '/privacy': 'WebPage',
+  '/visit': 'AboutPage',
+  '/fr': 'AboutPage',
+  '/fr/about': 'AboutPage',
+  '/fr/contact': 'ContactPage',
+  '/fr/events': 'CollectionPage',
+  '/fr/exhibits': 'CollectionPage',
+  '/fr/membership': 'AboutPage',
+  '/fr/photos': 'CollectionPage',
+  '/fr/privacy': 'WebPage',
+  '/fr/visit': 'AboutPage',
+};
+const pageSchemaType = pageTypes[normalizedPath] ?? 'WebPage';
 const breadcrumbLabels = {
   '': isFrench ? 'Accueil' : 'Home',
   about: isFrench ? 'A propos' : 'About',
@@ -155,7 +197,7 @@ const structuredData = [
   },
   {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    '@type': pageSchemaType,
     '@id': webpageId,
     url: canonicalUrl,
     name: title,
