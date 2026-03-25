@@ -1,0 +1,10 @@
+{
+  "short_name": "Espace Max",
+  "name": "Espace Musée Oné Onti Max Gros-Louis",
+  "description": "Site éducatif sur l'histoire autochtone du Québec et le rôle de Max Gros-Louis.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#2D2926",
+  "icons": []
+}

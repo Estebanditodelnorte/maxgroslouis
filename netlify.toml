@@ -44,3 +44,18 @@
   for = "/sitemap-*.xml"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/education"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet, noimageindex"
+
+[[headers]]
+  for = "/fr/education"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet, noimageindex"
+
+[[headers]]
+  for = "/_education-preview/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet, noimageindex"

@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const previewPath = '/_education-preview/';
+const reviewUsername = 'ISA';
+const reviewPassword = 'Max1234!';
+---
+
+<Layout
+  title="Education Review | School Museum Project"
+  description="Protected internal review area for the bilingual educational section pending approval."
+  noindex={true}
+>
+  <section class="review-shell">
+    <p class="eyebrow">Internal Review</p>
+    <h1>School Museum Project</h1>
+    <p class="lead">
+      This hidden section contains the bilingual educational site for review before it is publicly linked from maxgroslouis.com.
+    </p>
+
+    <div class="review-card glass-panel">
+      <div class="review-login" data-review-login>
+        <h2>Director Login</h2>
+        <p>Enter the temporary review username and password to open the attached educational section.</p>
+
+        <form class="review-form" data-review-form>
+          <label>
+            Username
+            <input type="text" name="username" autocomplete="username" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" autocomplete="current-password" required />
+          </label>
+          <button class="btn primary" type="submit">Open review section</button>
+          <p class="review-error" data-review-error hidden>Incorrect username or password.</p>
+        </form>
+
+        <p class="review-note">
+          This is a temporary soft gate for internal approval only. It is meant to reduce casual access while the educational content is being reviewed with the elders.
+        </p>
+      </div>
+
+      <div class="review-panel" data-review-panel hidden>
+        <div class="review-panel__header">
+          <div>
+            <h2>Educational section unlocked</h2>
+            <p>
+              The bilingual school museum project is now attached inside the live site. It remains hidden from public navigation and marked noindex for now.
+            </p>
+          </div>
+          <div class="review-panel__actions">
+            <a class="btn ghost" href={previewPath} target="_blank" rel="noreferrer">Open in new tab</a>
+            <button class="btn ghost" type="button" data-review-logout>Log out</button>
+          </div>
+        </div>
+
+        <div class="review-frame-wrap">
+          <iframe
+            src={previewPath}
+            title="School museum educational preview"
+            loading="lazy"
+            data-review-iframe
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ reviewUsername, reviewPassword }}>
+    const storageKey = 'emgl-education-preview-access';
+    const loginSection = document.querySelector('[data-review-login]');
+    const panelSection = document.querySelector('[data-review-panel]');
+    const form = document.querySelector('[data-review-form]');
+    const error = document.querySelector('[data-review-error]');
+    const logoutButton = document.querySelector('[data-review-logout]');
+
+    const showPanel = () => {
+      loginSection.hidden = true;
+      panelSection.hidden = false;
+    };
+
+    const showLogin = () => {
+      loginSection.hidden = false;
+      panelSection.hidden = true;
+    };
+
+    if (localStorage.getItem(storageKey) === 'granted') {
+      showPanel();
+    } else {
+      showLogin();
+    }
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const username = String(formData.get('username') || '').trim();
+      const password = String(formData.get('password') || '');
+
+      if (username === reviewUsername && password === reviewPassword) {
+        localStorage.setItem(storageKey, 'granted');
+        error.hidden = true;
+        form.reset();
+        showPanel();
+        return;
+      }
+
+      error.hidden = false;
+    });
+
+    logoutButton?.addEventListener('click', () => {
+      localStorage.removeItem(storageKey);
+      showLogin();
+    });
+  </script>
+</Layout>
+
+<style>
+  .review-shell {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+  }
+
+  .lead {
+    max-width: 60ch;
+    font-size: 1.05rem;
+  }
+
+  .review-card {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .review-form {
+    display: grid;
+    gap: 1rem;
+    max-width: 28rem;
+    margin-top: 1.5rem;
+  }
+
+  .review-form label {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--global-base-t-color);
+  }
+
+  .review-form input {
+    border-radius: 0.8rem;
+    border: 1px solid var(--global-border-alt-color);
+    background: rgba(5, 15, 9, 0.55);
+    color: var(--global-base-t-color);
+    padding: 0.85rem 1rem;
+    font: inherit;
+  }
+
+  .review-error {
+    color: #ffb4b4;
+    margin: 0;
+  }
+
+  .review-note {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    max-width: 62ch;
+  }
+
+  .review-panel__header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .review-panel__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .review-frame-wrap {
+    margin-top: 1rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid var(--global-border-alt-color);
+    background: rgba(5, 15, 9, 0.65);
+    min-height: 80vh;
+  }
+
+  .review-frame-wrap iframe {
+    display: block;
+    width: 100%;
+    min-height: 80vh;
+    border: 0;
+    background: white;
+  }
+</style>

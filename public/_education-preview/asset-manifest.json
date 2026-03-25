@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/_education-preview/static/css/main.12e4e40f.css",
+    "main.js": "/_education-preview/static/js/main.d7a2d7ef.js",
+    "index.html": "/_education-preview/index.html",
+    "main.12e4e40f.css.map": "/_education-preview/static/css/main.12e4e40f.css.map",
+    "main.d7a2d7ef.js.map": "/_education-preview/static/js/main.d7a2d7ef.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.12e4e40f.css",
+    "static/js/main.d7a2d7ef.js"
+  ]
+}

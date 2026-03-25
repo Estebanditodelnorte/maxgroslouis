@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://timeline-quebec.emergent.host/</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://timeline-quebec.emergent.host/" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://timeline-quebec.emergent.host/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://timeline-quebec.emergent.host/" />
+  </url>
+  <url>
+    <loc>https://timeline-quebec.emergent.host/enseignants</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://timeline-quebec.emergent.host/enseignants" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://timeline-quebec.emergent.host/en/teachers" />
+  </url>
+  <url>
+    <loc>https://timeline-quebec.emergent.host/max-gros-louis</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://timeline-quebec.emergent.host/max-gros-louis" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://timeline-quebec.emergent.host/en/max-gros-louis" />
+  </url>
+  <url>
+    <loc>https://timeline-quebec.emergent.host/themes</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://timeline-quebec.emergent.host/themes" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://timeline-quebec.emergent.host/en/themes" />
+  </url>
+  <url>
+    <loc>https://timeline-quebec.emergent.host/chronologie</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://timeline-quebec.emergent.host/chronologie" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://timeline-quebec.emergent.host/en/timeline" />
+  </url>
+  <url>
+    <loc>https://timeline-quebec.emergent.host/quiz</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://timeline-quebec.emergent.host/quiz" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://timeline-quebec.emergent.host/en/quiz" />
+  </url>
+  <url>
+    <loc>https://timeline-quebec.emergent.host/glossaire</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://timeline-quebec.emergent.host/glossaire" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://timeline-quebec.emergent.host/en/glossary" />
+  </url>
+  <url>
+    <loc>https://timeline-quebec.emergent.host/activites</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://timeline-quebec.emergent.host/activites" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://timeline-quebec.emergent.host/en/activities" />
+  </url>
+  <url>
+    <loc>https://timeline-quebec.emergent.host/en</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://timeline-quebec.emergent.host/" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://timeline-quebec.emergent.host/en" />
+  </url>
+  <url>
+    <loc>https://timeline-quebec.emergent.host/en/teachers</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://timeline-quebec.emergent.host/enseignants" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://timeline-quebec.emergent.host/en/teachers" />
+  </url>
+  <url>
+    <loc>https://timeline-quebec.emergent.host/en/max-gros-louis</loc>
+    <xhtml:link rel="alternate" hreflang="fr-CA" href="https://timeline-quebec.emergent.host/max-gros-louis" />
+    <xhtml:link rel="alternate" hreflang="en-CA" href="https://timeline-quebec.emergent.host/en/max-gros-louis" />
+  </url>
+</urlset>

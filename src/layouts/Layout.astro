@@ -1,7 +1,7 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import PageFooter from '../components/PageFooter.astro';
-const { title, description, image } = Astro.props;
+const { title, description, image, noindex = false } = Astro.props;
 const pathname = Astro.url.pathname;
 const normalizedPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
 const isFrench = pathname.startsWith('/fr');
@@ -33,16 +33,16 @@ const defaultDescriptions = {
   '/membership': 'Support the museum through membership, donations, preservation, exhibitions, and cultural programs.',
   '/photos': 'Browse museum photos, collection highlights, exhibits, and community moments from Wendake.',
   '/privacy': 'Read the website privacy policy, data practices, and Quebec Law 25 compliance details.',
-  '/visit': 'Plan a visit to the museum in Wendake with address, access, hours, and visitor status details.',
-  '/fr': 'Musee a Wendake dedie au Grand Chef Max Gros-Louis, au patrimoine huron-wendat, aux expositions et aux archives.',
+  '/visit': 'Plan a visit to the museum in Wendake near Quebec City with address, access, hours, and visitor details.',
+  '/fr': 'Musee a Wendake, pres de Quebec, dedie au Grand Chef Max Gros-Louis et au patrimoine huron-wendat.',
   '/fr/about': 'Decouvrez la mission, la gouvernance, les jalons et la transmission culturelle du musee a Wendake.',
   '/fr/contact': 'Communiquez avec le musee de Wendake pour les visites, partenariats et demandes communautaires.',
-  '/fr/events': 'Consultez les ateliers, consultations, activites et evenements du musee lies a Max Gros-Louis.',
+  '/fr/events': 'Consultez les ateliers, consultations, activites et evenements du musee lies a Max Gros-Louis a Wendake.',
   '/fr/exhibits': 'Explorez les expositions, archives, recits oraux et patrimoines autochtones lies a Max Gros-Louis.',
   '/fr/membership': 'Soutenez le musee par l adhesion, les dons, les expositions et la preservation culturelle.',
   '/fr/photos': 'Parcourez les photos du musee, de la collection, des expositions et de la communaute.',
   '/fr/privacy': 'Consultez la politique de confidentialite, les pratiques de donnees et la conformite a la Loi 25.',
-  '/fr/visit': 'Preparez votre visite du musee a Wendake avec l adresse, l acces et le statut actuel.',
+  '/fr/visit': 'Preparez votre visite du musee a Wendake, pres de Quebec, avec l adresse, l acces et le statut actuel.',
 };
 const defaultImages = {
   '/': '/images/webp/max.webp',
@@ -73,16 +73,16 @@ const defaultKeywords = {
   '/membership': 'museum membership, donate to museum, Wendake heritage support, cultural preservation',
   '/photos': 'museum photos, Max Gros-Louis photos, Wendake collection, exhibit gallery',
   '/privacy': 'privacy policy, Law 25, museum website privacy, data protection',
-  '/visit': 'visit museum Wendake, museum address, visitor information, guided groups, Quebec museum',
-  '/fr': 'musee Wendake, Max Gros-Louis, nation huronne-wendat, patrimoine autochtone, expositions, archives',
+  '/visit': 'visit museum Wendake, Quebec City day trip, museum address, visitor information, guided groups',
+  '/fr': 'quoi faire a Quebec, Wendake, musee Max Gros-Louis, nation huronne-wendat, patrimoine autochtone',
   '/fr/about': 'mission du musee, gouvernance, jalons, patrimoine huron-wendat, Wendake',
   '/fr/contact': 'contact musee Wendake, telephone, courriel, partenariats, demandes de recherche',
-  '/fr/events': 'evenements musee, ateliers patrimoniaux, consultations, histoire orale, Wendake',
+  '/fr/events': 'quoi faire a Quebec, evenements Wendake, ateliers patrimoniaux, histoire orale, tourisme autochtone',
   '/fr/exhibits': 'expositions musee, collection Max Gros-Louis, archives, patrimoine autochtone',
   '/fr/membership': 'adhesion musee, dons, preservation culturelle, soutien au patrimoine',
   '/fr/photos': 'photos musee, galerie, collection, expositions, communaute Wendake',
   '/fr/privacy': 'politique de confidentialite, Loi 25, protection des donnees',
-  '/fr/visit': 'visiter musee Wendake, adresse, acces, informations visiteurs, groupes guides',
+  '/fr/visit': 'quoi faire a Quebec, visiter Wendake, musee pres de Quebec, adresse, acces, groupes guides',
 };
 const pageImage = image ?? defaultImages[normalizedPath] ?? defaultImages[isFrench ? '/fr' : '/'];
 const imageUrl = new URL(pageImage, site).toString();
@@ -228,7 +228,7 @@ const structuredData = [
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={pageDescription} />
     <meta name="keywords" content={pageKeywords} />
-    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta name="robots" content={noindex ? 'noindex,nofollow,noarchive,nosnippet,noimageindex' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'} />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
